@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Store starter</title>
+  <style>
+    :root { --paper:#f5eddd; --ink:#2b241a; --accent:#c9473d; --line:#2b241a; --serif:Georgia,serif; --sans:Arial,sans-serif; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--paper); color:var(--ink); font-family:var(--sans); }
+    button { font:inherit; cursor:pointer; }
+    header { display:flex; align-items:center; justify-content:space-between; padding:22px clamp(20px,5vw,72px); border-bottom:1px solid var(--line); }
+    .brand { font:700 28px var(--serif); }
+    .cart-button,.action,.view { border:1px solid var(--ink); border-radius:999px; padding:11px 18px; background:#fffdf8; color:var(--ink); }
+    main { max-width:1180px; margin:auto; padding:clamp(24px,5vw,72px); }
+    .hero { display:grid; grid-template-columns:1fr 1.15fr; gap:48px; align-items:center; min-height:470px; }
+    h1 { font:700 clamp(48px,7vw,92px)/.95 var(--serif); margin:0 0 24px; max-width:720px; }
+    .hero p { font-size:20px; line-height:1.5; max-width:520px; }
+    .hero img { width:100%; height:440px; object-fit:cover; border:1px solid var(--ink); border-radius:28px; }
+    h2 { font:700 44px var(--serif); margin:80px 0 28px; }
+    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+    article { border:1px solid var(--ink); border-radius:24px; overflow:hidden; background:#fffdf8; }
+    .product-image { width:100%; aspect-ratio:4/3; overflow:hidden; background:#e9e0d0; }
+    .product-image img { width:100%; height:100%; object-fit:cover; display:block; }
+    .product-copy { padding:22px; }
+    h3 { font:700 27px var(--serif); margin:0 0 10px; }
+    .price { font-weight:700; margin:18px 0; }
+    dialog { width:min(620px,92vw); border:1px solid var(--ink); border-radius:24px; padding:28px; background:#fffdf8; color:var(--ink); }
+    dialog::backdrop { background:#2b241acc; }
+    .dialog-actions { display:flex; gap:12px; margin-top:24px; }
+    .drawer { position:fixed; inset:0 0 0 auto; width:min(420px,100%); background:#fffdf8; border-left:1px solid var(--ink); padding:28px; transform:translateX(105%); transition:transform .25s ease; z-index:5; }
+    .drawer.open { transform:none; }
+    .cart-line,.total { display:flex; justify-content:space-between; gap:20px; padding:18px 0; border-bottom:1px solid #c9c0b3; }
+    .total { font-weight:700; }
+    @media (max-width:760px) { .hero { grid-template-columns:1fr; } .hero img { height:340px; } .grid { grid-template-columns:1fr; } h2 { margin-top:52px; } }
+  </style>
+</head>
+<body>
+  <header><div class="brand" id="brand">YOUR STORE</div><button class="cart-button" id="cartOpen">Cart <span id="cartCount">0</span></button></header>
+  <main>
+    <section class="hero">
+      <div><h1 id="promise">Replace this with the exact promise from STORE-KIT.md</h1><p id="supporting">Replace this with the approved supporting line.</p><button class="action" onclick="document.querySelector('#collection').scrollIntoView({behavior:'smooth'})">Shop the collection</button></div>
+      <img id="heroImage" src="../assets/soft-hours-product-family.png" alt="Replace with a description of the supplied product-family reference">
+    </section>
+    <section id="collection"><h2>The collection</h2><div class="grid" id="productGrid"></div></section>
+  </main>
+  <dialog id="productDialog"><button class="view" id="dialogClose">Close</button><h2 id="dialogName"></h2><p id="dialogDescription"></p><p class="price" id="dialogPrice"></p><div class="dialog-actions"><button class="action" id="dialogAdd">Add to cart</button></div></dialog>
+  <aside class="drawer" id="cartDrawer" aria-label="Shopping cart"><button class="view" id="cartClose">Close</button><h2>Your cart</h2><div id="cartLines">Your cart is empty.</div><div class="total"><span>Total</span><span id="cartTotal">₹0</span></div></aside>
+  <script>
+    // Replace STORE with the exact values from STORE-KIT.md. Do not invent new products or claims.
+    const STORE = {
+      storeName: "YOUR STORE",
+      promise: "Replace this with the exact promise from STORE-KIT.md",
+      supportingLine: "Replace this with the approved supporting line.",
+      products: [
+        { id:"one", name:"Product one", description:"Approved catalog description", price:0, image:"../assets/soft-hours-product-family.png", crop:"left center", zoom:1.7 },
+        { id:"two", name:"Product two", description:"Approved catalog description", price:0, image:"../assets/soft-hours-product-family.png", crop:"center center", zoom:1.7 },
+        { id:"three", name:"Product three", description:"Approved catalog description", price:0, image:"../assets/soft-hours-product-family.png", crop:"right center", zoom:1.7 }
+      ]
+    };
+    const money = value => new Intl.NumberFormat("en-IN",{style:"currency",currency:"INR",maximumFractionDigits:0}).format(value);
+    let selected = null;
+    const cart = [];
+    brand.textContent = STORE.storeName; promise.textContent = STORE.promise; supporting.textContent = STORE.supportingLine;
+    productGrid.innerHTML = STORE.products.map((p,i)=>`<article><div class="product-image"><img src="${p.image}" alt="${p.name}" style="object-position:${p.crop||'center'};transform:scale(${p.zoom||1});transform-origin:${p.crop||'center'}"></div><div class="product-copy"><h3>${p.name}</h3><p>${p.description}</p><p class="price">${money(p.price)}</p><button class="view" data-index="${i}">View</button></div></article>`).join("");
+    productGrid.addEventListener("click", e=>{ const b=e.target.closest("[data-index]"); if(!b)return; selected=STORE.products[Number(b.dataset.index)]; dialogName.textContent=selected.name; dialogDescription.textContent=selected.description; dialogPrice.textContent=money(selected.price); productDialog.showModal(); });
+    dialogClose.onclick=()=>productDialog.close();
+    dialogAdd.onclick=()=>{ cart.push(selected); productDialog.close(); renderCart(); cartDrawer.classList.add("open"); };
+    cartOpen.onclick=()=>cartDrawer.classList.add("open"); cartClose.onclick=()=>cartDrawer.classList.remove("open");
+    function renderCart(){ cartCount.textContent=cart.length; cartLines.innerHTML=cart.length?cart.map(p=>`<div class="cart-line"><span>${p.name}</span><strong>${money(p.price)}</strong></div>`).join(""):"Your cart is empty."; cartTotal.textContent=money(cart.reduce((sum,p)=>sum+p.price,0)); }
+  </script>
+</body>
+</html>

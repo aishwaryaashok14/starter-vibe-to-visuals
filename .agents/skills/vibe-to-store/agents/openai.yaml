@@ -1,0 +1,7 @@
+interface:
+  display_name: "Vibe to Store"
+  short_description: "Create one build-ready visual Store Kit"
+  brand_color: "#C9473D"
+  default_prompt: "Use $vibe-to-store to turn my store idea into one complete STORE-KIT.md."
+policy:
+  allow_implicit_invocation: true
