@@ -14,7 +14,8 @@ A 90-minute build-along workshop in which students turn a physical-product store
 
 ## Start here
 
-- Open `index.html` for the student follow-along guide.
+- Open the [public student guide](https://aishwaryaashok14.github.io/starter-vibe-to-visuals/) and use its download button for the starter files.
+- If working offline, open `index.html` from the downloaded folder.
 - Paste `PROJECT-INSTRUCTIONS.md` into a ChatGPT Project's instructions.
 - Choose the build route at the top of the guide. The page swaps in the relevant questions, prompts, checkpoints, and submission list.
 - Add the relevant template, source file, and visual references to the Project as the workshop progresses.
