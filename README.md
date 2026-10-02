@@ -46,4 +46,4 @@ These tools do not change the evidence gate. Students submit their source file, 
 
 ## Codex route
 
-The repository retains the `$vibe-to-store` skill under `.agents/skills/vibe-to-store` for the physical-product route. The combined Project instructions and student guide also support software apps and service experiences.
+Codex users can use `$vibe-to-visuals` to choose among the store, software-app, and service routes and create the matching source file. The original `$vibe-to-store` skill remains available for existing physical-store prompts. In ChatGPT Projects on the web, paste `PROJECT-INSTRUCTIONS.md`; the project instructions provide the same route choice without requiring a Codex skill.

@@ -20,6 +20,7 @@ node tests/validate-package.mjs
 | --- | --- | --- |
 | Physical-store preservation | Pass | The complete store-route configuration matches its pre-change SHA-256 hash. |
 | Digital source file | Pass | App and service routes consistently use `DESIGN.md` and the renamed template. |
+| Skill route choice | Pass (static) | `$vibe-to-visuals` distinguishes store, software app, and service before creating the matching source file; the original `$vibe-to-store` remains available. |
 | Stitch handoff | Pass | Both routes direct students to import `DESIGN.md` into Google Stitch and build a clickable focused journey. |
 | Flexible journey scope | Pass | The digital build contract requests the screens and states the journey needs and contains no fixed three-screen requirement. |
 | Published handoff | Pass | App and service routes show Netlify publishing steps, hide the physical-store Sites prompt, and give Pomelli the public URL. |

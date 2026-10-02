@@ -57,7 +57,7 @@ Describe one complete path from entry to success. Add only the screens and state
 
 ## Three selected visual moments
 
-Complete this section after the Stitch prototype works. These moments are campaign anchors, not a limit on the prototype.
+Complete this section after the Stitch prototype works, when preparing the three video beats. These moments are not a limit on the prototype. Pomelli can use the published Netlify URL for the social image; it does not need a contact sheet.
 
 1. Entry point: [screen or state]
 2. Defining interaction: [screen or state]
@@ -67,7 +67,7 @@ Complete this section after the Stitch prototype works. These moments are campai
 
 - Preserve the approved promise, journey, interface copy, controls, and states.
 - Create only the screens and states the focused journey needs.
-- Use the selected Stitch captures as the visual source of truth for campaign work.
+- Use the published Stitch experience as the visual source of truth. Use genuine captures when the video or fallback image tool needs them.
 - [Project-specific constraint]
 
 ## Avoid

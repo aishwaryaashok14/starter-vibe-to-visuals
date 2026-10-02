@@ -11,6 +11,7 @@ const designTemplate = read("templates/DESIGN-TEMPLATE.md");
 const consistencyCheck = read("templates/CONSISTENCY-CHECK.md");
 const readme = read("README.md");
 const facilitator = read("FACILITATOR-RUN-OF-SHOW.md");
+const routeSkill = read(".agents/skills/vibe-to-visuals/SKILL.md");
 
 const storeStart = guide.indexOf("    const storeRoute={");
 const storeEnd = guide.indexOf("\n    };", storeStart) + 7;
@@ -32,6 +33,7 @@ assert.match(digitalRoute, /focused (user|customer )?journey/i);
 assert.match(digitalRoute, /three real Stitch moments/i);
 assert.match(digitalRoute, /Import <code>DESIGN\.md<\/code> into Google Stitch/);
 assert.match(digitalRoute, /public Netlify URL/);
+assert.match(digitalRoute, /\$vibe-to-visuals/);
 assert.doesNotMatch(digitalRoute, /experience-screens\.png|contact sheet/i);
 assert.doesNotMatch(digitalRoute, /Ask Sites to build exactly/i);
 assert.doesNotMatch(digitalRoute, /DESIGN-KIT\.md/);
@@ -54,6 +56,10 @@ assert.match(readme, /Google Stitch/);
 assert.match(readme, /publish it to Netlify/);
 assert.match(facilitator, /preflight Google Stitch/i);
 assert.match(facilitator, /public Netlify URL/);
+assert.match(routeSkill, /physical-product store, a software app, or a service experience/);
+assert.match(routeSkill, /STORE-KIT\.md/);
+assert.match(routeSkill, /DESIGN\.md/);
+assert.match(routeSkill, /public Netlify URL/);
 
 const elements = new Map();
 const makeElement = (id = "") => ({
