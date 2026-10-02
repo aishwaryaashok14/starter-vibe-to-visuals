@@ -6,7 +6,7 @@
   <title>Vibe to Visuals — Student Build Guide</title>
   <style>
     :root{--canvas:#f7f6f2;--surface:#fff;--ink:#1c1c1a;--muted:#726f68;--accent:#2868d8;--red:#c84b42;--blue-soft:#eaf2ff;--green-soft:#e6f1e8;--pink-soft:#f7e8e5;--yellow-soft:#f6efcf;--line:#ddd9d0;--line-strong:#c7c1b6}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--canvas);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;font-size:16px;line-height:1.55}button,input,textarea{font:inherit}button,summary{cursor:pointer}.layout{display:grid;grid-template-columns:250px minmax(0,1fr);min-height:100vh}.rail{position:sticky;top:0;height:100vh;padding:34px 26px;background:var(--surface);border-right:1px solid var(--line);overflow:auto}.rail h1{font-size:27px;line-height:1.08;letter-spacing:-.035em;margin:0 0 8px}.rail p{color:var(--muted);font-size:14px;margin:0 0 28px}.progress-track{height:4px;background:#e9e6df;border-radius:99px;overflow:hidden;margin:9px 0}.progress-fill{height:100%;width:0;background:var(--accent);transition:width .2s}.progress-label{font:13px/1.3 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted)}.rail nav{display:grid;gap:3px;margin-top:28px}.rail a{position:relative;color:var(--ink);text-decoration:none;padding:10px 10px 10px 22px;border-radius:8px;font-size:15px}.rail a::before{content:"";position:absolute;left:7px;top:17px;width:6px;height:6px;border-radius:50%;background:#b9b5ad}.rail a:hover,.rail a:focus-visible{background:#f1f0ec;outline:none}.rail a:hover::before,.rail a:focus-visible::before{background:var(--accent)}.rail .reset{margin-top:26px;width:100%;padding:10px;border:1px solid var(--line-strong);background:transparent;color:var(--ink);border-radius:8px}.content{max-width:960px;width:100%;padding:64px clamp(34px,6vw,84px) 110px}.intro{margin-bottom:56px}.eyebrow{font:700 12px/1.3 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent);letter-spacing:.1em}.intro h2{font-size:clamp(50px,7vw,76px);line-height:.98;letter-spacing:-.055em;margin:14px 0 22px;max-width:820px}.intro>p{font-size:20px;max-width:720px;color:var(--muted)}.finish{border-top:1px solid var(--line-strong);border-bottom:1px solid var(--line-strong);padding:18px 0;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:32px}.finish strong{display:block;font:700 12px ui-monospace,monospace;color:var(--accent);letter-spacing:.04em}.finish span{font-size:14px}.step{scroll-margin-top:22px;margin:0;padding:52px 0;border-top:1px solid var(--line-strong)}.step-head{display:grid;grid-template-columns:42px 1fr auto;gap:16px;align-items:start}.num{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;background:var(--ink);color:#fff;font:700 13px ui-monospace,monospace}.step h3{font-size:36px;line-height:1.08;letter-spacing:-.04em;margin:0 0 8px}.why{margin:0;color:var(--muted);max-width:650px}.time{font:700 12px ui-monospace,monospace;color:var(--accent);padding-top:7px}.step-body{margin:26px 0 0 58px}.action{font-weight:700;font-size:18px;margin-top:0}.fields{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:20px 0}.field{display:grid;gap:7px}.field.full{grid-column:1/-1}.field label{font-weight:700}.field small{color:var(--muted)}input,textarea{width:100%;padding:13px 14px;border:1px solid var(--line-strong);background:var(--surface);border-radius:9px;color:var(--ink)}input:focus,textarea:focus{border-color:var(--accent);outline:3px solid #2868d81a}textarea{min-height:105px;resize:vertical}.examples{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0}.example{padding:15px 17px;border:1px solid var(--line);border-radius:10px;background:var(--surface)}.example.good{border-left:4px solid #54855b}.example.weak{border-left:4px solid var(--red)}.example strong{display:block;margin-bottom:5px}.prompt{position:relative;margin:18px 0;background:#eeede9;color:var(--ink);border:1px solid var(--line);padding:22px 22px 66px;border-radius:12px;white-space:pre-wrap;font:14px/1.58 ui-monospace,SFMono-Regular,Menlo,monospace;overflow-wrap:anywhere}.copy{position:absolute;right:12px;bottom:12px;border:0;background:var(--ink);color:#fff;border-radius:8px;padding:9px 13px}.copy:hover,.copy:focus-visible{background:var(--accent)}.copy.copied{background:#54855b}.directions{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}.direction{padding:17px;border:1px solid var(--line);border-radius:11px}.direction:nth-child(1){background:var(--blue-soft)}.direction:nth-child(2){background:var(--yellow-soft)}.direction:nth-child(3){background:var(--pink-soft)}.direction h4{font-size:19px;line-height:1.15;margin:0 0 8px}.direction p{font-size:14px;margin:5px 0}.expected,.rescue{margin-top:16px;padding:15px 17px;border-left:3px solid var(--accent);background:var(--blue-soft);border-radius:0 9px 9px 0}.rescue{border-left-color:var(--red);background:var(--pink-soft)}.expected strong,.rescue strong{display:block;margin-bottom:4px}.checkrow{margin-top:22px;padding:18px;background:var(--surface);border:1px solid var(--line);border-radius:10px;display:flex;gap:12px;align-items:flex-start;font-weight:700}.checkrow input{width:20px;height:20px;margin:2px 0 0;accent-color:var(--accent)}.routes{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}.route{padding:17px;border:1px solid var(--line);background:var(--surface);border-radius:10px}.route h4{margin:0 0 7px;font-size:18px}.route p{font-size:14px;margin-bottom:0}.mini-table{width:100%;border-collapse:collapse;margin:18px 0}.mini-table th,.mini-table td{text-align:left;padding:11px;border-bottom:1px solid var(--line);vertical-align:top}.mini-table th{font-size:12px;font-family:ui-monospace,monospace;color:var(--accent)}.setup-list{margin:18px 0;padding:0;list-style:none;counter-reset:setup;display:grid;gap:10px}.setup-list li{counter-increment:setup;position:relative;padding:14px 16px 14px 48px;border:1px solid var(--line);border-radius:10px;background:var(--surface)}.setup-list li::before{content:counter(setup);position:absolute;left:15px;top:13px;width:22px;height:22px;border-radius:7px;background:var(--ink);color:#fff;display:grid;place-items:center;font:700 12px ui-monospace,monospace}details{margin-top:16px;border:1px solid var(--line);border-radius:10px;background:var(--surface);padding:0 16px}summary{padding:14px 2px;font-weight:700}details[open]{padding-bottom:16px}details p:first-of-type{margin-top:2px}.tool-options{display:grid;grid-template-columns:1fr 1fr;gap:16px}.tool-options h4{margin:4px 0 6px}.tool-options p{color:var(--muted);margin-top:0}.tool-options .prompt{grid-column:1/-1}.submit-list{margin:14px 0 0;padding-left:20px}.submit-list li{margin:5px 0}@media(max-width:900px){.layout{grid-template-columns:1fr}.rail{position:relative;height:auto;padding:24px}.rail nav{grid-template-columns:repeat(2,1fr)}.content{padding-top:42px}.finish,.directions,.routes{grid-template-columns:1fr 1fr}.step-body{margin-left:0}}@media(max-width:620px){body{font-size:16px}.content{padding-inline:20px}.intro h2{font-size:48px}.step{padding:40px 0}.step-head{grid-template-columns:38px 1fr}.time{grid-column:2}.fields,.examples,.finish,.directions,.routes,.tool-options{grid-template-columns:1fr}.rail nav{grid-template-columns:1fr}.step h3{font-size:30px}.step-body{margin-top:22px}}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--canvas);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;font-size:16px;line-height:1.55}button,input,textarea,select{font:inherit}button,summary{cursor:pointer}.layout{display:grid;grid-template-columns:250px minmax(0,1fr);min-height:100vh}.rail{position:sticky;top:0;height:100vh;padding:34px 26px;background:var(--surface);border-right:1px solid var(--line);overflow:auto}.rail h1{font-size:27px;line-height:1.08;letter-spacing:-.035em;margin:0 0 8px}.rail p{color:var(--muted);font-size:14px;margin:0 0 28px}.progress-track{height:4px;background:#e9e6df;border-radius:99px;overflow:hidden;margin:9px 0}.progress-fill{height:100%;width:0;background:var(--accent);transition:width .2s}.progress-label{font:13px/1.3 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted)}.rail nav{display:grid;gap:3px;margin-top:28px}.rail a{position:relative;color:var(--ink);text-decoration:none;padding:10px 10px 10px 22px;border-radius:8px;font-size:15px}.rail a::before{content:"";position:absolute;left:7px;top:17px;width:6px;height:6px;border-radius:50%;background:#b9b5ad}.rail a:hover,.rail a:focus-visible{background:#f1f0ec;outline:none}.rail a:hover::before,.rail a:focus-visible::before{background:var(--accent)}.rail .reset{margin-top:26px;width:100%;padding:10px;border:1px solid var(--line-strong);background:transparent;color:var(--ink);border-radius:8px}.content{max-width:960px;width:100%;padding:64px clamp(34px,6vw,84px) 110px}.intro{margin-bottom:56px}.eyebrow{font:700 12px/1.3 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent);letter-spacing:.1em}.intro h2{font-size:clamp(50px,7vw,76px);line-height:.98;letter-spacing:-.055em;margin:14px 0 22px;max-width:820px}.intro>p{font-size:20px;max-width:720px;color:var(--muted)}.route-picker{display:grid;grid-template-columns:minmax(220px,320px) 1fr;gap:16px;align-items:end;margin-top:28px;padding:18px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}.route-picker label{display:grid;gap:7px;font-weight:700}.route-picker select{width:100%;padding:11px 38px 11px 12px;border:1px solid var(--line-strong);border-radius:9px;background:var(--surface);color:var(--ink)}.route-picker select:focus{border-color:var(--accent);outline:3px solid #2868d81a}.route-note{margin:0;color:var(--muted);font-size:14px}.finish{border-top:1px solid var(--line-strong);border-bottom:1px solid var(--line-strong);padding:18px 0;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:32px}.finish strong{display:block;font:700 12px ui-monospace,monospace;color:var(--accent);letter-spacing:.04em}.finish span{font-size:14px}.step{scroll-margin-top:22px;margin:0;padding:52px 0;border-top:1px solid var(--line-strong)}.step-head{display:grid;grid-template-columns:42px 1fr auto;gap:16px;align-items:start}.num{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;background:var(--ink);color:#fff;font:700 13px ui-monospace,monospace}.step h3{font-size:36px;line-height:1.08;letter-spacing:-.04em;margin:0 0 8px}.why{margin:0;color:var(--muted);max-width:650px}.time{font:700 12px ui-monospace,monospace;color:var(--accent);padding-top:7px}.step-body{margin:26px 0 0 58px}.action{font-weight:700;font-size:18px;margin-top:0}.fields{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:20px 0}.field{display:grid;gap:7px}.field.full{grid-column:1/-1}.field label{font-weight:700}.field small{color:var(--muted)}input,textarea{width:100%;padding:13px 14px;border:1px solid var(--line-strong);background:var(--surface);border-radius:9px;color:var(--ink)}input:focus,textarea:focus{border-color:var(--accent);outline:3px solid #2868d81a}textarea{min-height:105px;resize:vertical}.examples{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0}.example{padding:15px 17px;border:1px solid var(--line);border-radius:10px;background:var(--surface)}.example.good{border-left:4px solid #54855b}.example.weak{border-left:4px solid var(--red)}.example strong{display:block;margin-bottom:5px}.prompt{position:relative;margin:18px 0;background:#eeede9;color:var(--ink);border:1px solid var(--line);padding:22px 22px 66px;border-radius:12px;white-space:pre-wrap;font:14px/1.58 ui-monospace,SFMono-Regular,Menlo,monospace;overflow-wrap:anywhere}.copy{position:absolute;right:12px;bottom:12px;border:0;background:var(--ink);color:#fff;border-radius:8px;padding:9px 13px}.copy:hover,.copy:focus-visible{background:var(--accent)}.copy.copied{background:#54855b}.directions{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}.direction{padding:17px;border:1px solid var(--line);border-radius:11px}.direction:nth-child(1){background:var(--blue-soft)}.direction:nth-child(2){background:var(--yellow-soft)}.direction:nth-child(3){background:var(--pink-soft)}.direction h4{font-size:19px;line-height:1.15;margin:0 0 8px}.direction p{font-size:14px;margin:5px 0}.expected,.rescue{margin-top:16px;padding:15px 17px;border-left:3px solid var(--accent);background:var(--blue-soft);border-radius:0 9px 9px 0}.rescue{border-left-color:var(--red);background:var(--pink-soft)}.expected strong,.rescue strong{display:block;margin-bottom:4px}.checkrow{margin-top:22px;padding:18px;background:var(--surface);border:1px solid var(--line);border-radius:10px;display:flex;gap:12px;align-items:flex-start;font-weight:700}.checkrow input{width:20px;height:20px;margin:2px 0 0;accent-color:var(--accent)}.routes{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}.route{padding:17px;border:1px solid var(--line);background:var(--surface);border-radius:10px}.route h4{margin:0 0 7px;font-size:18px}.route p{font-size:14px;margin-bottom:0}.mini-table{width:100%;border-collapse:collapse;margin:18px 0}.mini-table th,.mini-table td{text-align:left;padding:11px;border-bottom:1px solid var(--line);vertical-align:top}.mini-table th{font-size:12px;font-family:ui-monospace,monospace;color:var(--accent)}.setup-list{margin:18px 0;padding:0;list-style:none;counter-reset:setup;display:grid;gap:10px}.setup-list li{counter-increment:setup;position:relative;padding:14px 16px 14px 48px;border:1px solid var(--line);border-radius:10px;background:var(--surface)}.setup-list li::before{content:counter(setup);position:absolute;left:15px;top:13px;width:22px;height:22px;border-radius:7px;background:var(--ink);color:#fff;display:grid;place-items:center;font:700 12px ui-monospace,monospace}details{margin-top:16px;border:1px solid var(--line);border-radius:10px;background:var(--surface);padding:0 16px}summary{padding:14px 2px;font-weight:700}details[open]{padding-bottom:16px}details p:first-of-type{margin-top:2px}.tool-options{display:grid;grid-template-columns:1fr 1fr;gap:16px}.tool-options h4{margin:4px 0 6px}.tool-options p{color:var(--muted);margin-top:0}.tool-options .prompt{grid-column:1/-1}.submit-list{margin:14px 0 0;padding-left:20px}.submit-list li{margin:5px 0}@media(max-width:900px){.layout{grid-template-columns:1fr}.rail{position:relative;height:auto;padding:24px}.rail nav{grid-template-columns:repeat(2,1fr)}.content{padding-top:42px}.finish,.directions,.routes{grid-template-columns:1fr 1fr}.step-body{margin-left:0}}@media(max-width:620px){body{font-size:16px}.content{padding-inline:20px}.intro h2{font-size:48px}.route-picker{grid-template-columns:1fr}.step{padding:40px 0}.step-head{grid-template-columns:38px 1fr}.time{grid-column:2}.fields,.examples,.finish,.directions,.routes,.tool-options{grid-template-columns:1fr}.rail nav{grid-template-columns:1fr}.step h3{font-size:30px}.step-body{margin-top:22px}}
   </style>
 </head>
 <body>
@@ -17,16 +17,17 @@
       <div class="progress-label" id="progressLabel">0 of 7 checkpoints complete</div>
       <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
       <nav aria-label="Workshop steps">
-        <a href="#prepare">1 · Prepare</a><a href="#store">2 · Create the store</a><a href="#reference">3 · Product reference</a><a href="#website">4 · Website</a><a href="#social">5 · Social</a><a href="#video">6 · Video</a><a href="#check">7 · Check and submit</a>
+        <a href="#prepare">1 · Prepare</a><a href="#store" id="navStep2">2 · Create the store</a><a href="#reference" id="navStep3">3 · Product reference</a><a href="#website" id="navStep4">4 · Website</a><a href="#social">5 · Social</a><a href="#video">6 · Video</a><a href="#check">7 · Check and submit</a>
       </nav>
       <button class="reset" id="reset">Reset progress</button>
     </aside>
     <main class="content">
       <section class="intro">
         <div class="eyebrow">TODAY'S MISSION</div>
-        <h2>Build one store in three formats</h2>
-        <p>You will create a small ecommerce store, one social image, and a short video. One Store Kit keeps the products, message, and visual direction consistent.</p>
-        <div class="finish"><div><strong>STORE KIT</strong><span>One source file</span></div><div><strong>WEBSITE</strong><span>Published store</span></div><div><strong>SOCIAL</strong><span>One 4:5 image</span></div><div><strong>VIDEO</strong><span>Three visible beats</span></div></div>
+        <h2 id="missionTitle">Build one store in three formats</h2>
+        <p id="missionSummary">You will create a small ecommerce store, one social image, and a short video. One Store Kit keeps the products, message, and visual direction consistent.</p>
+        <div class="route-picker"><label for="buildType">Choose your build path<select id="buildType"><option value="store">Physical-product store</option><option value="app">Software app</option><option value="service">Service experience</option></select></label><p class="route-note" id="routeNote" aria-live="polite">Create three physical products and sell them through one coherent visual world.</p></div>
+        <div class="finish"><div><strong id="sourceLabel">STORE KIT</strong><span>One source file</span></div><div><strong id="coreLabel">WEBSITE</strong><span id="coreValue">Published store</span></div><div><strong>SOCIAL</strong><span>One 4:5 image</span></div><div><strong>VIDEO</strong><span>Three visible beats</span></div></div>
       </section>
 
       <section class="step" id="prepare" data-step="prepare">
@@ -35,21 +36,21 @@
           <p class="action">Prepare one ChatGPT Project and confirm that Sites is available.</p>
           <ol class="setup-list"><li>Paste <code>PROJECT-INSTRUCTIONS.md</code> into the Project instructions.</li><li>Add the starter files to the Project.</li><li>Confirm that ChatGPT can create a Site.</li></ol>
           <div class="expected"><strong>Ready state</strong>The Project can read the instructions and create a Site.</div>
-          <details><summary>Sites unavailable?</summary><p>Use a normal chat with <code>PROJECT-INSTRUCTIONS.md</code>. If setup still takes more than two minutes, continue with Soft Hours and <code>website-starter/index.html</code>. Codex users can use <code>$vibe-to-store</code>.</p></details>
+          <details><summary>Sites unavailable?</summary><p id="setupFallback">Use a normal chat with <code>PROJECT-INSTRUCTIONS.md</code>. If setup still takes more than two minutes, continue with Soft Hours and <code>website-starter/index.html</code>. Codex users can use <code>$vibe-to-store</code>.</p></details>
           <label class="checkrow"><input type="checkbox" data-check="prepare">My Project is ready, and I know where the fallback is.</label>
         </div>
       </section>
 
       <section class="step" id="store" data-step="store">
-        <div class="step-head"><div class="num">02</div><div><h3>Create and lock the store</h3><p class="why">Three useful decisions give the skill enough information to recommend a coherent visual direction.</p></div><div class="time">11 MIN</div></div>
+        <div class="step-head"><div class="num">02</div><div><h3 id="step2Title">Create and lock the store</h3><p class="why" id="step2Why">Three useful decisions give the skill enough information to recommend a coherent visual direction.</p></div><div class="time">11 MIN</div></div>
         <div class="step-body">
           <p class="action">Answer the three questions with specific, visible details.</p>
           <div class="fields">
-            <div class="field"><label for="productSet">What three objects will the store sell?</label><small>Name visible objects with different shapes or scales.</small><textarea id="productSet" data-save placeholder="Example: small desk objects—a timer, pen rest, and catch-all tray"></textarea></div>
-            <div class="field"><label for="customerMoment">Who is it for, and what is happening?</label><small>Name a person, situation, and desired small change.</small><textarea id="customerMoment" data-save placeholder="Example: students resetting a crowded desk before working late who want it to feel calmer"></textarea></div>
+            <div class="field"><label for="productSet" id="primaryLabel">What three objects will the store sell?</label><small id="primaryHelp">Name visible objects with different shapes or scales.</small><textarea id="productSet" data-save placeholder="Example: small desk objects—a timer, pen rest, and catch-all tray"></textarea></div>
+            <div class="field"><label for="customerMoment" id="momentLabel">Who is it for, and what is happening?</label><small>Name a person, situation, and desired small change.</small><textarea id="customerMoment" data-save placeholder="Example: students resetting a crowded desk before working late who want it to feel calmer"></textarea></div>
             <div class="field full"><label for="tasteBoundary">What should it feel like, and what should it avoid?</label><small>Add a commercial position, one quality to preserve, and one thing to avoid. Ask for a recommendation if unsure.</small><input id="tasteBoundary" data-save placeholder="Example: considered but attainable; tactile and calm; avoid gaming imagery"></div>
           </div>
-          <div class="examples"><div class="example good"><strong>Useful input</strong>“Small travel organisers for people packing for frequent weekend trips.”</div><div class="example weak"><strong>Too broad</strong>“A cool luxury lifestyle brand for everyone.”</div></div>
+          <div class="examples"><div class="example good"><strong>Useful input</strong><span id="goodExample">“Small travel organisers for people packing for frequent weekend trips.”</span></div><div class="example weak"><strong>Too broad</strong><span id="weakExample">“A cool luxury lifestyle brand for everyone.”</span></div></div>
           <div class="prompt" id="starterPrompt">Use $vibe-to-store in workshop mode.
 
 My product set: [complete the field above]
@@ -57,69 +58,69 @@ My customer moment: [complete the field above]
 My taste boundary: [complete the field above]
 
 Propose three clearly different visual directions. Explain the palette, typography, lighting, composition, materials, one risk, and why each direction fits. Then wait for me to choose.<button class="copy" data-copy="starterPrompt" data-dynamic="true">Copy prompt</button></div>
-          <p class="action">Choose one direction, or combine two named qualities once. Then create the Store Kit.</p>
+          <p class="action" id="lockAction">Choose one direction, or combine two named qualities once. Then create the Store Kit.</p>
           <div class="directions"><div class="direction"><h4>Quiet Focus</h4><p>Oat, moss, cobalt. Editorial type, diffused daylight, generous space.</p></div><div class="direction"><h4>Playful Reset</h4><p>Cream, tomato, cornflower. Geometric type, graphic shadows, stacked objects.</p></div><div class="direction"><h4>Night Study</h4><p>Ink, lilac, silver. Condensed type, pools of light, slow close-ups.</p></div></div>
           <div class="prompt" id="lockPrompt">Develop direction [name]. Lock the store and create one file named STORE-KIT.md. It must contain exactly three complete products, five palette colours, visual rules, approved website and campaign copy, non-negotiables, and an avoid list. Validate it against the Store Kit schema before you finish.<button class="copy" data-copy="lockPrompt">Copy lock prompt</button></div>
-          <div class="expected"><strong>Ready state</strong>One file with three complete products, five colours, visual rules, and approved copy.</div>
-          <div class="rescue"><strong>If you are stuck</strong>Use <code>fallback/STORE-KIT.md</code>. Do not improvise missing products, prices, or claims during the workshop.</div>
-          <label class="checkrow"><input type="checkbox" data-check="store">My <code>STORE-KIT.md</code> exists and contains every required section.</label>
+          <div class="expected"><strong>Ready state</strong><span id="lockReady">One file with three complete products, five colours, visual rules, and approved copy.</span></div>
+          <div class="rescue"><strong>If you are stuck</strong><span id="lockRescue">Use <code>fallback/STORE-KIT.md</code>. Do not improvise missing products, prices, or claims during the workshop.</span></div>
+          <label class="checkrow"><input type="checkbox" data-check="store"><span id="lockCheck">My <code>STORE-KIT.md</code> exists and contains every required section.</span></label>
         </div>
       </section>
 
       <section class="step" id="reference" data-step="reference">
-        <div class="step-head"><div class="num">03</div><div><h3>Generate the product reference</h3><p class="why">One approved family image gives the website, social image, and video the same product identity.</p></div><div class="time">10 MIN</div></div>
+        <div class="step-head"><div class="num">03</div><div><h3 id="step3Title">Generate the product reference</h3><p class="why" id="step3Why">One approved family image gives the website, social image, and video the same product identity.</p></div><div class="time" id="step3Time">10 MIN</div></div>
         <div class="step-body">
-          <p class="action">Generate all three products together before creating campaign imagery.</p>
+          <p class="action" id="step3Action">Generate all three products together before creating campaign imagery.</p>
           <div class="prompt" id="referencePrompt">Read STORE-KIT.md. Create one high-resolution landscape product-family image containing exactly the three specified products, clearly separated into left, centre, and right regions so each product can be cropped for a website card. Preserve each silhouette, material, and colour. Use the chosen lighting, surface, and composition rules. No text, logo, packaging invention, extra products, people, or unsupported claims. Completion check: all three products are distinct, match STORE-KIT.md, and can each be isolated with a crop.<button class="copy" data-copy="referencePrompt">Copy prompt</button></div>
-          <div class="expected"><strong>Ready state</strong>Three distinct products with the correct material, colour, and silhouette.</div>
-          <div class="rescue"><strong>If you are stuck</strong>Reduce the scene to a plain surface and one light source. If one object is wrong, regenerate the family rather than carrying the mismatch forward.</div>
-          <label class="checkrow"><input type="checkbox" data-check="reference">I saved one approved image as <code>product-family.png</code>.</label>
+          <div class="expected"><strong>Ready state</strong><span id="step3Ready">Three distinct products with the correct material, colour, and silhouette.</span></div>
+          <div class="rescue"><strong>If you are stuck</strong><span id="step3Rescue">Reduce the scene to a plain surface and one light source. If one object is wrong, regenerate the family rather than carrying the mismatch forward.</span></div>
+          <label class="checkrow"><input type="checkbox" data-check="reference"><span id="step3Check">I saved one approved image as <code>product-family.png</code>.</span></label>
         </div>
       </section>
 
       <section class="step" id="website" data-step="website">
-        <div class="step-head"><div class="num">04</div><div><h3>Build the store</h3><p class="why">The website turns the visual direction into a complete buying path.</p></div><div class="time">20 MIN</div></div>
+        <div class="step-head"><div class="num">04</div><div><h3 id="step4Title">Build the store</h3><p class="why" id="step4Why">The website turns the visual direction into a complete buying path.</p></div><div class="time" id="step4Time">20 MIN</div></div>
         <div class="step-body">
-          <p class="action">Ask Sites to build the store from <code>STORE-KIT.md</code> and <code>product-family.png</code>.</p>
+          <p class="action" id="step4Action">Ask Sites to build the store from <code>STORE-KIT.md</code> and <code>product-family.png</code>.</p>
           <div class="prompt" id="websitePrompt">Read STORE-KIT.md and use product-family.png as the visual reference. Create a responsive one-page ecommerce Site with the exact store promise, three products, prices, product detail view, add-to-cart action, visible cart count, and total. Apply each product's crop hint and zoom. Preserve the approved visual direction and factual claims. Do not add products, pages, testimonials, discounts, checkout, accounts, or new claims. Test the cart and mobile layout, then publish the Site publicly.<button class="copy" data-copy="websitePrompt">Copy Sites prompt</button></div>
-          <div class="expected"><strong>Ready state</strong>A published Site with three products, working product view, correct cart, and usable mobile layout.</div>
-          <details><summary>Using the Site with Pomelli?</summary><p>Pomelli needs a public URL. Change the Site's audience only if public sharing is allowed. Otherwise keep it private and use another social-image route.</p></details>
-          <div class="rescue"><strong>If you are stuck</strong>If Sites is unavailable after two minutes, open <code>website-starter/index.html</code> and run the same prompt without the final publishing instruction. A simulated cart is enough; do not connect payment processing.</div>
-          <label class="checkrow"><input type="checkbox" data-check="website">My published Site or fallback store works on desktop and mobile, including product view and cart.</label>
+          <div class="expected"><strong>Ready state</strong><span id="step4Ready">A published Site with three products, working product view, correct cart, and usable mobile layout.</span></div>
+          <details><summary id="step4OptionalTitle">Using the Site with Pomelli?</summary><p id="step4OptionalText">Pomelli needs a public URL. Change the Site's audience only if public sharing is allowed. Otherwise keep it private and use another social-image route.</p></details>
+          <div class="rescue"><strong>If you are stuck</strong><span id="step4Rescue">If Sites is unavailable after two minutes, open <code>website-starter/index.html</code> and run the same prompt without the final publishing instruction. A simulated cart is enough; do not connect payment processing.</span></div>
+          <label class="checkrow"><input type="checkbox" data-check="website"><span id="step4Check">My published Site or fallback store works on desktop and mobile, including product view and cart.</span></label>
         </div>
       </section>
 
       <section class="step" id="social" data-step="social">
-        <div class="step-head"><div class="num">05</div><div><h3>Create one social image</h3><p class="why">A campaign image should lead with one message while preserving the product reference.</p></div><div class="time">12 MIN</div></div>
+        <div class="step-head"><div class="num">05</div><div><h3>Create one social image</h3><p class="why" id="step5Why">A campaign image should lead with one message while preserving the product reference.</p></div><div class="time">12 MIN</div></div>
         <div class="step-body">
-          <p class="action">Attach the product reference and use the prompt below to make one 1080 × 1350 image.</p>
+          <p class="action" id="step5Action">Attach the product reference and use the prompt below to make one 1080 × 1350 image.</p>
           <div class="prompt" id="socialPrompt">Attach product-family.png and read STORE-KIT.md. Create one 1080 × 1350 social campaign image with one dominant product and the approved social line. Preserve the product's exact shape, material, and colour. Apply the chosen palette, lighting, composition, and type direction. You may change crop, scale, setting, and shadow. Do not redesign the product, add packaging, add products, or invent claims. Completion check: the product matches the reference and one message leads the frame.<button class="copy" data-copy="socialPrompt">Copy prompt</button></div>
-          <details><summary>Other ways to make the social image</summary><div class="tool-options"><div><h4>Pomelli</h4><p>Use a public store URL and refine one campaign concept. Switch routes after two minutes if access is unavailable.</p></div><div><h4>Free editor</h4><p>In Adobe Express or another editor, combine one product crop with the approved social line.</p></div><div class="prompt" id="pomelliPrompt">Use this public store URL: [URL]. Build one campaign around the approved social line from STORE-KIT.md. Preserve the product names, colours, shapes, prices, and claims. Export one 1080 × 1350 frame. Reject invented products or claims.<button class="copy" data-copy="pomelliPrompt">Copy instructions</button></div></div></details>
-          <div class="expected"><strong>Ready state</strong>One recognisable product, one leading line, and the same visual direction as the Site.</div>
-          <div class="rescue"><strong>If you are stuck</strong>Use an object-led composition: one product, one surface, one shadow, one line. Do not request three directions during the core route.</div>
+          <details><summary>Other ways to make the social image</summary><div class="tool-options"><div><h4>Pomelli</h4><p id="pomelliHelp">Use a public store URL and refine one campaign concept. Switch routes after two minutes if access is unavailable.</p></div><div><h4>Free editor</h4><p id="editorHelp">In Adobe Express or another editor, combine one product crop with the approved social line.</p></div><div class="prompt" id="pomelliPrompt">Use this public store URL: [URL]. Build one campaign around the approved social line from STORE-KIT.md. Preserve the product names, colours, shapes, prices, and claims. Export one 1080 × 1350 frame. Reject invented products or claims.<button class="copy" data-copy="pomelliPrompt">Copy instructions</button></div></div></details>
+          <div class="expected"><strong>Ready state</strong><span id="step5Ready">One recognisable product, one leading line, and the same visual direction as the Site.</span></div>
+          <div class="rescue"><strong>If you are stuck</strong><span id="step5Rescue">Use an object-led composition: one product, one surface, one shadow, one line. Do not request three directions during the core route.</span></div>
           <label class="checkrow"><input type="checkbox" data-check="social">I exported one 1080 × 1350 social image.</label>
         </div>
       </section>
 
       <section class="step" id="video" data-step="video">
-        <div class="step-head"><div class="num">06</div><div><h3>Build the three-beat video</h3><p class="why">The hook, product, and payoff give a short sequence visible progression.</p></div><div class="time">15 MIN</div></div>
+        <div class="step-head"><div class="num">06</div><div><h3>Build the three-beat video</h3><p class="why" id="step6Why">The hook, product, and payoff give a short sequence visible progression.</p></div><div class="time">15 MIN</div></div>
         <div class="step-body">
-          <div class="routes"><div class="route"><h4>1 · Hook</h4><p>0–2.5 seconds. One detail and a reason to continue.</p></div><div class="route"><h4>2 · Product</h4><p>2.5–5.2 seconds. Exact product name and price.</p></div><div class="route"><h4>3 · Payoff</h4><p>5.2–8 seconds. The collection and store promise.</p></div></div>
+          <div class="routes"><div class="route"><h4>1 · Hook</h4><p id="beat1Text">0–2.5 seconds. One detail and a reason to continue.</p></div><div class="route"><h4 id="beat2Title">2 · Product</h4><p id="beat2Text">2.5–5.2 seconds. Exact product name and price.</p></div><div class="route"><h4>3 · Payoff</h4><p id="beat3Text">5.2–8 seconds. The collection and store promise.</p></div></div>
           <p class="action">Use the prompt below to create the same three beats in your available video tool.</p>
           <div class="prompt" id="videoPrompt">Read STORE-KIT.md. Use product-family.png and the chosen social image. Create a silent 1080 × 1920 sequence lasting 6–8 seconds with exactly three scenes: hook, product, payoff. Use the approved video lines and exact product name and price. Preserve product shape, material, colour, and the chosen motion direction. Do not add new products, claims, spinning objects, or extra scenes. Completion check: a viewer can understand the store and product when the video plays muted.<button class="copy" data-copy="videoPrompt">Copy prompt</button></div>
-          <details><summary>Choose a video tool</summary><div class="tool-options"><div><h4>Google Flow</h4><p>Upload <code>product-family.png</code> and the social image as references, then use the prompt above. Generate one short clip. Switch routes after two minutes if generation is unavailable.</p></div><div><h4>Editor or browser loop</h4><p>Arrange one still per beat in CapCut or Adobe Express, or replace the images and lines in <code>video-template/index.html</code>.</p></div></div></details>
-          <div class="expected"><strong>Ready state</strong>Three different beats, readable text, recognisable products, and a clear ending.</div>
+          <details><summary>Choose a video tool</summary><div class="tool-options"><div><h4>Google Flow</h4><p id="flowHelp">Upload <code>product-family.png</code> and the social image as references, then use the prompt above. Generate one short clip. Switch routes after two minutes if generation is unavailable.</p></div><div><h4>Editor or browser loop</h4><p>Arrange one still per beat in CapCut or Adobe Express, or replace the images and lines in <code>video-template/index.html</code>.</p></div></div></details>
+          <div class="expected"><strong>Ready state</strong><span id="step6Ready">Three different beats, readable text, recognisable products, and a clear ending.</span></div>
           <div class="rescue"><strong>If you are stuck</strong>Submit the working browser loop or a three-frame animatic. Audio and complex transitions are stretch work.</div>
-          <label class="checkrow"><input type="checkbox" data-check="video">My muted sequence shows a hook, product, and payoff in 6–8 seconds.</label>
+          <label class="checkrow"><input type="checkbox" data-check="video"><span id="step6Check">My muted sequence shows a hook, product, and payoff in 6–8 seconds.</span></label>
         </div>
       </section>
 
       <section class="step" id="check" data-step="check">
-        <div class="step-head"><div class="num">07</div><div><h3>Check, repair, and submit</h3><p class="why">The final artifact is the system: the same promise and product identity across three formats.</p></div><div class="time">17 MIN</div></div>
+        <div class="step-head"><div class="num">07</div><div><h3>Check, repair, and submit</h3><p class="why" id="step7Why">The final artifact is the system: the same promise and product identity across three formats.</p></div><div class="time">17 MIN</div></div>
         <div class="step-body">
           <p class="action">Open <code>templates/CONSISTENCY-CHECK.md</code>. Score the website, social image, and video. Fix the lowest-scoring mismatch only.</p>
-          <table class="mini-table"><tr><th>CHECK</th><th>PASS CONDITION</th></tr><tr><td>Promise</td><td>The same core idea is clear in all three artifacts.</td></tr><tr><td>Product identity</td><td>Names, prices, shape, material, and colour match.</td></tr><tr><td>Visual direction</td><td>Palette, type, light, composition, and pace follow the brief.</td></tr><tr><td>Truth</td><td>No unsupported claims or invented products appear.</td></tr><tr><td>Action</td><td>The next step is clear and consistent.</td></tr></table>
-          <div class="expected"><strong>Submit</strong><ul class="submit-list"><li><code>STORE-KIT.md</code> and <code>product-family.png</code></li><li>Sites link or fallback website folder</li><li>Social image and video or animatic</li><li>Completed consistency check</li></ul></div>
+          <table class="mini-table"><thead><tr><th>CHECK</th><th>PASS CONDITION</th></tr></thead><tbody id="consistencyRows"><tr><td>Promise</td><td>The same core idea is clear in all three artifacts.</td></tr><tr><td>Product identity</td><td>Names, prices, shape, material, and colour match.</td></tr><tr><td>Visual direction</td><td>Palette, type, light, composition, and pace follow the brief.</td></tr><tr><td>Truth</td><td>No unsupported claims or invented products appear.</td></tr><tr><td>Action</td><td>The next step is clear and consistent.</td></tr></tbody></table>
+          <div class="expected"><strong>Submit</strong><ul class="submit-list" id="submitList"><li><code>STORE-KIT.md</code> and <code>product-family.png</code></li><li>Sites link or fallback website folder</li><li>Social image and video or animatic</li><li>Completed consistency check</li></ul></div>
           <label class="checkrow"><input type="checkbox" data-check="check">I repaired one meaningful mismatch and saved every required output together.</label>
         </div>
       </section>
@@ -127,20 +128,196 @@ Propose three clearly different visual directions. Explain the palette, typograp
   </div>
   <script>
     const KEY="vibe-to-visuals-guide-v2";
-    const state=JSON.parse(localStorage.getItem(KEY)||"{}");
+    const stored=JSON.parse(localStorage.getItem(KEY)||"{}");
     const progressLabel=document.getElementById("progressLabel");
     const progressFill=document.getElementById("progressFill");
     const reset=document.getElementById("reset");
+    const buildType=document.getElementById("buildType");
     const productSet=document.getElementById("productSet");
     const customerMoment=document.getElementById("customerMoment");
     const tasteBoundary=document.getElementById("tasteBoundary");
     const checks=[...document.querySelectorAll("[data-check]")];
     const saves=[...document.querySelectorAll("[data-save]")];
-    function persist(){const next={checks:{},fields:{}};checks.forEach(c=>next.checks[c.dataset.check]=c.checked);saves.forEach(f=>next.fields[f.id]=f.value);localStorage.setItem(KEY,JSON.stringify(next));update();}
-    function update(){const count=checks.filter(c=>c.checked).length;progressLabel.textContent=`${count} of ${checks.length} checkpoints complete`;progressFill.style.width=`${count/checks.length*100}%`;}
-    checks.forEach(c=>{c.checked=Boolean(state.checks&&state.checks[c.dataset.check]);c.addEventListener("change",persist)});saves.forEach(f=>{f.value=(state.fields&&state.fields[f.id])||"";f.addEventListener("input",persist)});update();
-    document.querySelectorAll("[data-copy]").forEach(button=>button.addEventListener("click",async()=>{let text=document.getElementById(button.dataset.copy).childNodes[0].textContent.trim();if(button.dataset.dynamic){text=`Use $vibe-to-store in workshop mode. If the skill is unavailable, follow the Vibe to Visuals Project instructions.\n\nMy product set: ${productSet.value||"[name a category and three visible objects]"}\nMy customer moment: ${customerMoment.value||"[name the person, situation, and desired small change]"}\nMy taste boundary: ${tasteBoundary.value||"[commercial position, quality to preserve, and thing to avoid]"}\n\nPropose three clearly different visual directions. Explain what each communicates, why it fits, the palette, typography, lighting, composition, materials, motion, and one risk. Then wait for me to choose.`}await navigator.clipboard.writeText(text);const old=button.textContent;button.textContent="Copied";button.classList.add("copied");setTimeout(()=>{button.textContent=old;button.classList.remove("copied")},1400)}));
-    let resetArmed=false;reset.addEventListener("click",()=>{if(!resetArmed){resetArmed=true;reset.textContent="Click again to clear";setTimeout(()=>{resetArmed=false;reset.textContent="Reset progress"},5000);return}localStorage.removeItem(KEY);location.reload()});
+    const routeStates=stored.routes||{store:{checks:stored.checks||{},fields:stored.fields||{}}};
+    let currentRoute=["store","app","service"].includes(stored.route)?stored.route:"store";
+
+    const storeRoute={
+      missionTitle:"Build one store in three formats",
+      missionSummary:"You will create a small ecommerce store, one social image, and a short video. One Store Kit keeps the products, message, and visual direction consistent.",
+      routeNote:"Create three physical products and sell them through one coherent visual world.",
+      sourceLabel:"STORE KIT",coreLabel:"WEBSITE",coreValue:"Published store",
+      setupFallback:"Use a normal chat with <code>PROJECT-INSTRUCTIONS.md</code>. If setup still takes more than two minutes, continue with Soft Hours and <code>website-starter/index.html</code>. Codex users can use <code>$vibe-to-store</code>.",
+      navStep2:"2 · Create the store",navStep3:"3 · Product reference",navStep4:"4 · Website",
+      step2Title:"Create and lock the store",step2Why:"Three useful decisions give the skill enough information to recommend a coherent visual direction.",
+      primaryLabel:"What three objects will the store sell?",primaryHelp:"Name visible objects with different shapes or scales.",primaryPlaceholder:"Example: small desk objects—a timer, pen rest, and catch-all tray",
+      momentLabel:"Who is it for, and what is happening?",momentPlaceholder:"Example: students resetting a crowded desk before working late who want it to feel calmer",
+      goodExample:"“Small travel organisers for people packing for frequent weekend trips.”",weakExample:"“A cool luxury lifestyle brand for everyone.”",
+      starterPrompt:"Use $vibe-to-store in workshop mode.\n\nMy product set: [complete the field above]\nMy customer moment: [complete the field above]\nMy taste boundary: [complete the field above]\n\nPropose three clearly different visual directions. Explain the palette, typography, lighting, composition, materials, one risk, and why each direction fits. Then wait for me to choose.",
+      starterDynamic:function(){return "Use $vibe-to-store in workshop mode. If the skill is unavailable, follow the Vibe to Visuals Project instructions.\n\nMy product set: "+(productSet.value||"[name a category and three visible objects]")+"\nMy customer moment: "+(customerMoment.value||"[name the person, situation, and desired small change]")+"\nMy taste boundary: "+(tasteBoundary.value||"[commercial position, quality to preserve, and thing to avoid]")+"\n\nPropose three clearly different visual directions. Explain what each communicates, why it fits, the palette, typography, lighting, composition, materials, motion, and one risk. Then wait for me to choose.";},
+      lockAction:"Choose one direction, or combine two named qualities once. Then create the Store Kit.",
+      lockPrompt:"Develop direction [name]. Lock the store and create one file named STORE-KIT.md. It must contain exactly three complete products, five palette colours, visual rules, approved website and campaign copy, non-negotiables, and an avoid list. Validate it against the Store Kit schema before you finish.",
+      lockReady:"One file with three complete products, five colours, visual rules, and approved copy.",
+      lockRescue:"Use <code>fallback/STORE-KIT.md</code>. Do not improvise missing products, prices, or claims during the workshop.",
+      lockCheck:"My <code>STORE-KIT.md</code> exists and contains every required section.",
+      step3Title:"Generate the product reference",step3Why:"One approved family image gives the website, social image, and video the same product identity.",step3Time:"10 MIN",
+      step3Action:"Generate all three products together before creating campaign imagery.",
+      referencePrompt:"Read STORE-KIT.md. Create one high-resolution landscape product-family image containing exactly the three specified products, clearly separated into left, centre, and right regions so each product can be cropped for a website card. Preserve each silhouette, material, and colour. Use the chosen lighting, surface, and composition rules. No text, logo, packaging invention, extra products, people, or unsupported claims. Completion check: all three products are distinct, match STORE-KIT.md, and can each be isolated with a crop.",
+      step3Ready:"Three distinct products with the correct material, colour, and silhouette.",
+      step3Rescue:"Reduce the scene to a plain surface and one light source. If one object is wrong, regenerate the family rather than carrying the mismatch forward.",
+      step3Check:"I saved one approved image as <code>product-family.png</code>.",
+      step4Title:"Build the store",step4Why:"The website turns the visual direction into a complete buying path.",step4Time:"20 MIN",
+      step4Action:"Ask Sites to build the store from <code>STORE-KIT.md</code> and <code>product-family.png</code>.",
+      websitePrompt:"Read STORE-KIT.md and use product-family.png as the visual reference. Create a responsive one-page ecommerce Site with the exact store promise, three products, prices, product detail view, add-to-cart action, visible cart count, and total. Apply each product's crop hint and zoom. Preserve the approved visual direction and factual claims. Do not add products, pages, testimonials, discounts, checkout, accounts, or new claims. Test the cart and mobile layout, then publish the Site publicly.",
+      step4Ready:"A published Site with three products, working product view, correct cart, and usable mobile layout.",
+      step4OptionalTitle:"Using the Site with Pomelli?",step4OptionalText:"Pomelli needs a public URL. Change the Site's audience only if public sharing is allowed. Otherwise keep it private and use another social-image route.",
+      step4Rescue:"If Sites is unavailable after two minutes, open <code>website-starter/index.html</code> and run the same prompt without the final publishing instruction. A simulated cart is enough; do not connect payment processing.",
+      step4Check:"My published Site or fallback store works on desktop and mobile, including product view and cart.",
+      step5Why:"A campaign image should lead with one message while preserving the product reference.",step5Action:"Attach the product reference and use the prompt below to make one 1080 × 1350 image.",
+      socialPrompt:"Attach product-family.png and read STORE-KIT.md. Create one 1080 × 1350 social campaign image with one dominant product and the approved social line. Preserve the product's exact shape, material, and colour. Apply the chosen palette, lighting, composition, and type direction. You may change crop, scale, setting, and shadow. Do not redesign the product, add packaging, add products, or invent claims. Completion check: the product matches the reference and one message leads the frame.",
+      pomelliHelp:"Use a public store URL and refine one campaign concept. Switch routes after two minutes if access is unavailable.",
+      editorHelp:"In Adobe Express or another editor, combine one product crop with the approved social line.",
+      pomelliPrompt:"Use this public store URL: [URL]. Build one campaign around the approved social line from STORE-KIT.md. Preserve the product names, colours, shapes, prices, and claims. Export one 1080 × 1350 frame. Reject invented products or claims.",
+      step5Ready:"One recognisable product, one leading line, and the same visual direction as the Site.",
+      step5Rescue:"Use an object-led composition: one product, one surface, one shadow, one line. Do not request three directions during the core route.",
+      step6Why:"The hook, product, and payoff give a short sequence visible progression.",
+      beat1Text:"0–2.5 seconds. One detail and a reason to continue.",beat2Title:"2 · Product",beat2Text:"2.5–5.2 seconds. Exact product name and price.",beat3Text:"5.2–8 seconds. The collection and store promise.",
+      videoPrompt:"Read STORE-KIT.md. Use product-family.png and the chosen social image. Create a silent 1080 × 1920 sequence lasting 6–8 seconds with exactly three scenes: hook, product, payoff. Use the approved video lines and exact product name and price. Preserve product shape, material, colour, and the chosen motion direction. Do not add new products, claims, spinning objects, or extra scenes. Completion check: a viewer can understand the store and product when the video plays muted.",
+      flowHelp:"Upload <code>product-family.png</code> and the social image as references, then use the prompt above. Generate one short clip. Switch routes after two minutes if generation is unavailable.",
+      step6Ready:"Three different beats, readable text, recognisable products, and a clear ending.",step6Check:"My muted sequence shows a hook, product, and payoff in 6–8 seconds.",
+      step7Why:"The final artifact is the system: the same promise and product identity across three formats.",
+      consistencyRows:"<tr><td>Promise</td><td>The same core idea is clear in all three artifacts.</td></tr><tr><td>Product identity</td><td>Names, prices, shape, material, and colour match.</td></tr><tr><td>Visual direction</td><td>Palette, type, light, composition, and pace follow the brief.</td></tr><tr><td>Truth</td><td>No unsupported claims or invented products appear.</td></tr><tr><td>Action</td><td>The next step is clear and consistent.</td></tr>",
+      submitList:"<li><code>STORE-KIT.md</code> and <code>product-family.png</code></li><li>Sites link or fallback website folder</li><li>Social image and video or animatic</li><li>Completed consistency check</li>"
+    };
+
+    function digitalRoute(kind){
+      const isApp=kind==="app";
+      const noun=isApp?"software app":"service experience";
+      const journey=isApp?"three connected screens":"three connected journey moments";
+      const primaryExample=isApp?"Example: a study-planning app with Today, Start Session, and Session Complete screens":"Example: a tutoring service with Discover, Choose a Tutor, and Booking Confirmed moments";
+      return{
+        missionTitle:isApp?"Build one app in three formats":"Build one service experience in three formats",
+        missionSummary:"You will build "+journey+", one social image, and a short video. One Design Kit keeps the user journey, interface, message, and visual direction consistent.",
+        routeNote:isApp?"Build one useful three-screen journey, then reuse the approved interface in the campaign.":"Build one clear service journey, then reuse the approved experience in the campaign.",
+        sourceLabel:"DESIGN KIT",coreLabel:isApp?"APP":"SERVICE",coreValue:isApp?"Published experience":"Published journey",
+        setupFallback:"Use a normal chat if Sites is unavailable. Keep the experience to three screens or moments and use static or simulated data; no live integration is required.",
+        navStep2:isApp?"2 · Define the app":"2 · Define the service",navStep3:isApp?"3 · Build the app":"3 · Build the journey",navStep4:"4 · Screen references",
+        step2Title:isApp?"Create and lock the app":"Create and lock the service",step2Why:"Three useful decisions give the guide enough information to recommend a coherent visual and interaction direction.",
+        primaryLabel:isApp?"What does the app help someone do?":"What service are you offering?",
+        primaryHelp:isApp?"Name the core job and exactly three connected screens.":"Name the service and exactly three connected moments in the customer journey.",
+        primaryPlaceholder:primaryExample,
+        momentLabel:"Who is the user, and what is happening?",momentPlaceholder:isApp?"Example: a student opening the app before an evening study session who wants to know what to focus on next":"Example: a parent comparing tutors before booking a first session who wants to feel confident about the choice",
+        goodExample:isApp?"“A study-planning app with Today, Start Session, and Session Complete screens.”":"“A tutoring service with Discover, Choose a Tutor, and Booking Confirmed moments.”",
+        weakExample:isApp?"“An AI productivity platform for everyone.”":"“A premium service that transforms people’s lives.”",
+        starterPrompt:"I am building a "+noun+".\n\nMy core experience: [complete the field above]\nMy user moment: [complete the field above]\nMy taste boundary: [complete the field above]\n\nPropose three clearly different visual and interaction directions. Explain what each communicates, why it fits, the palette, typography, interface style, imagery, composition, motion, voice, and one risk. Then wait for me to choose.",
+        starterDynamic:function(){return "I am building a "+noun+".\n\nMy core experience: "+(productSet.value||"[name the core job and exactly three connected screens or journey moments]")+"\nMy user moment: "+(customerMoment.value||"[name the person, situation, and desired small change]")+"\nMy taste boundary: "+(tasteBoundary.value||"[commercial position, quality to preserve, and thing to avoid]")+"\n\nPropose three clearly different visual and interaction directions. Explain what each communicates, why it fits, the palette, typography, interface style, imagery, composition, motion, voice, and one risk. Then wait for me to choose.";},
+        lockAction:"Choose one direction, or combine two named qualities once. Then create the Design Kit.",
+        lockPrompt:"Develop direction [name]. Lock the experience and create one file named DESIGN-KIT.md. It must contain one clear promise, the primary user and moment, one core action, exactly "+journey+", approved interface and campaign copy, visual and interaction rules, non-negotiables, and an avoid list. For each screen or moment, specify its purpose, content hierarchy, primary action, exact CTA copy, important state, and what success looks like. Validate it against the Design Kit requirements before you finish.",
+        lockReady:"One file with a clear promise, exactly "+journey+", visual and interaction rules, and approved copy.",
+        lockRescue:"Use a simple three-part journey: understand, act, and confirm. Remove any feature that is not needed to complete that journey.",
+        lockCheck:"My <code>DESIGN-KIT.md</code> exists and contains every required section.",
+        step3Title:isApp?"Build the core app experience":"Build the core service journey",step3Why:"Real interface screens become the source of truth for the social image and video.",step3Time:"20 MIN",
+        step3Action:"Ask Sites to build exactly "+journey+" from <code>DESIGN-KIT.md</code>.",
+        referencePrompt:"Read DESIGN-KIT.md. Create a responsive "+noun+" in ChatGPT Sites with exactly "+journey+". Preserve the approved promise, interface copy, visual direction, navigation, components, and states. Give each screen or moment one clear purpose and one primary action, and connect them into a working journey. Do not add features, screens, testimonials, pricing claims, accounts, or integrations that are not present in DESIGN-KIT.md. Test the complete journey on desktop and mobile, then publish the Site publicly.",
+        step3Ready:"A published experience with exactly "+journey+", clear primary actions, and a complete path from start to success.",
+        step3Rescue:"Reduce the experience to one user, one task, and three connected moments. Static or simulated data is enough; do not add authentication or live integrations.",
+        step3Check:"My published experience works on desktop and mobile from the first screen to the success state.",
+        step4Title:"Capture the UX references",step4Why:"Approved captures prevent later tools from inventing screens, copy, or controls.",step4Time:"10 MIN",
+        step4Action:"Capture the three approved screens or journey moments before creating campaign imagery.",
+        websitePrompt:"Open the published Site and capture the three approved screens or journey moments at the same desktop viewport. Preserve the exact interface text, layout, controls, colours, and states. Save the individual captures and one landscape contact sheet named experience-screens.png. These captures are now the visual source of truth for the social image and video.",
+        step4Ready:"Three consistent captures and one readable <code>experience-screens.png</code> contact sheet.",
+        step4OptionalTitle:"Using an image generator next?",step4OptionalText:"Use the real screen capture as a placed interface element. Generate only the surrounding campaign world. If the tool redraws or changes the interface, use a free editor instead.",
+        step4Rescue:"Use browser screenshots at one consistent size. If a screen is incomplete, repair the Site before capturing it.",
+        step4Check:"I saved three approved captures and one <code>experience-screens.png</code> contact sheet.",
+        step5Why:"A campaign image should lead with one message while preserving the real interface.",
+        step5Action:"Attach the approved UX reference and use the prompt below to make one 1080 × 1350 image.",
+        socialPrompt:"Attach experience-screens.png and read DESIGN-KIT.md. Create one 1080 × 1350 campaign composition with one approved interface screen as the dominant visual and the approved social line as the leading message. Preserve the screen exactly. Do not redraw the interface, alter its text, move its controls, or invent features. Apply the approved palette, imagery, composition, lighting, and type direction only around the interface. If the image tool cannot preserve the screen accurately, generate the campaign background separately and combine it with the original screenshot in an editor.",
+        pomelliHelp:"Use the public experience URL to develop one campaign concept. Check that it does not invent features, outcomes, or interface states.",
+        editorHelp:"In Adobe Express or another editor, place one original screen capture over a generated or designed campaign background.",
+        pomelliPrompt:"Use this public experience URL: [URL]. Build one campaign around the approved social line from DESIGN-KIT.md. Preserve the promise, feature set, interface copy, visual direction, and approved screen. Export one 1080 × 1350 frame. Reject invented features, outcomes, testimonials, or claims.",
+        step5Ready:"One unaltered interface screen, one leading line, and the same visual direction as the working experience.",
+        step5Rescue:"Place the original screenshot over a simple background in a free editor. Do not ask an image model to redraw the interface.",
+        step6Why:"The need, action, and outcome give the short sequence visible progression.",
+        beat1Text:"0–2.5 seconds. Show the user need or moment.",beat2Title:"2 · Experience",beat2Text:"2.5–5.2 seconds. Show the real primary action.",beat3Text:"5.2–8 seconds. Show the approved success state and promise.",
+        videoPrompt:"Read DESIGN-KIT.md. Use the approved UX screen captures and selected social image. Create a silent 1080 × 1920 sequence lasting 6–8 seconds with exactly three scenes: user need, interface action, and outcome. Use the approved video lines and actual screens. Preserve the exact interface text, layout, controls, and states. Do not redraw screens, invent features, add unsupported outcomes, or add extra scenes. Completion check: a viewer can understand what the "+(isApp?"app":"service")+" does when the video plays muted.",
+        flowHelp:"Upload <code>experience-screens.png</code> and the social image as references, then use the prompt above. Reject any clip that changes the interface.",
+        step6Ready:"Three different beats, readable interface text, recognisable screens, and a clear outcome.",step6Check:"My muted sequence shows the user need, real interface action, and approved outcome in 6–8 seconds.",
+        step7Why:"The final artifact is the system: the same promise, journey, interface, and visual direction across three formats.",
+        consistencyRows:"<tr><td>Promise</td><td>The same core idea is clear in all three artifacts.</td></tr><tr><td>Journey</td><td>The same three screens or moments appear in the same logical order.</td></tr><tr><td>Interface truth</td><td>Text, controls, states, and features match the working Site.</td></tr><tr><td>Visual direction</td><td>Palette, type, imagery, composition, and pace follow the brief.</td></tr><tr><td>Action</td><td>The primary action and successful outcome remain clear.</td></tr>",
+        submitList:"<li><code>DESIGN-KIT.md</code> and <code>experience-screens.png</code></li><li>Published Sites link</li><li>Social image and video or animatic</li><li>Completed consistency check</li>"
+      };
+    }
+
+    const routes={store:storeRoute,app:digitalRoute("app"),service:digitalRoute("service")};
+    function setText(id,value){document.getElementById(id).textContent=value;}
+    function setHTML(id,value){document.getElementById(id).innerHTML=value;}
+    function setPrompt(id,value){document.getElementById(id).childNodes[0].nodeValue=value;}
+    function applyRoute(routeName){
+      const route=routes[routeName];
+      ["missionTitle","missionSummary","routeNote","sourceLabel","coreLabel","coreValue","navStep2","navStep3","navStep4","step2Title","step2Why","primaryLabel","primaryHelp","momentLabel","goodExample","weakExample","lockAction","step3Title","step3Why","step3Time","step4Title","step4Why","step4Time","step4OptionalTitle","step4OptionalText","step5Why","step5Action","pomelliHelp","editorHelp","step6Why","beat1Text","beat2Title","beat2Text","beat3Text","step6Ready","step6Check","step7Why"].forEach(id=>setText(id,route[id]));
+      productSet.placeholder=route.primaryPlaceholder;
+      customerMoment.placeholder=route.momentPlaceholder;
+      setPrompt("starterPrompt",route.starterPrompt);
+      setPrompt("lockPrompt",route.lockPrompt);
+      setPrompt("referencePrompt",route.referencePrompt);
+      setPrompt("websitePrompt",route.websitePrompt);
+      setPrompt("socialPrompt",route.socialPrompt);
+      setPrompt("pomelliPrompt",route.pomelliPrompt);
+      setPrompt("videoPrompt",route.videoPrompt);
+      ["lockReady","step3Ready","step5Ready"].forEach(id=>setText(id,route[id]));
+      ["setupFallback","lockRescue","lockCheck","step3Action","step3Rescue","step3Check","step4Action","step4Ready","step4Rescue","step4Check","step5Rescue","flowHelp","consistencyRows","submitList"].forEach(id=>setHTML(id,route[id]));
+      document.body.dataset.route=routeName;
+    }
+
+    function update(){
+      const count=checks.filter(c=>c.checked).length;
+      progressLabel.textContent=count+" of "+checks.length+" checkpoints complete";
+      progressFill.style.width=count/checks.length*100+"%";
+    }
+    function captureRouteState(){
+      const next={checks:{},fields:{}};
+      checks.forEach(c=>next.checks[c.dataset.check]=c.checked);
+      saves.forEach(f=>next.fields[f.id]=f.value);
+      return next;
+    }
+    function persist(){
+      routeStates[currentRoute]=captureRouteState();
+      localStorage.setItem(KEY,JSON.stringify({route:currentRoute,routes:routeStates}));
+      update();
+    }
+    function loadRoute(routeName){
+      currentRoute=routeName;
+      buildType.value=routeName;
+      const routeState=routeStates[routeName]||{checks:{},fields:{}};
+      checks.forEach(c=>c.checked=Boolean(routeState.checks&&routeState.checks[c.dataset.check]));
+      saves.forEach(f=>f.value=(routeState.fields&&routeState.fields[f.id])||"");
+      applyRoute(routeName);
+      update();
+    }
+
+    checks.forEach(c=>c.addEventListener("change",persist));
+    saves.forEach(f=>f.addEventListener("input",persist));
+    buildType.addEventListener("change",()=>{persist();loadRoute(buildType.value);persist();});
+    loadRoute(currentRoute);
+    document.querySelectorAll("[data-copy]").forEach(button=>button.addEventListener("click",async()=>{
+      let text=document.getElementById(button.dataset.copy).childNodes[0].textContent.trim();
+      if(button.dataset.dynamic)text=routes[currentRoute].starterDynamic();
+      await navigator.clipboard.writeText(text);
+      const old=button.textContent;
+      button.textContent="Copied";
+      button.classList.add("copied");
+      setTimeout(()=>{button.textContent=old;button.classList.remove("copied")},1400);
+    }));
+    let resetArmed=false;
+    reset.addEventListener("click",()=>{
+      if(!resetArmed){
+        resetArmed=true;
+        reset.textContent="Click again to clear";
+        setTimeout(()=>{resetArmed=false;reset.textContent="Reset progress"},5000);
+        return;
+      }
+      localStorage.removeItem(KEY);
+      location.reload();
+    });
   </script>
 </body>
 </html>
