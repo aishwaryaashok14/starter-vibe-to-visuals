@@ -33,11 +33,11 @@
       <section class="step" id="prepare" data-step="prepare">
         <div class="step-head"><div class="num">01</div><div><h3>Prepare the workspace</h3><p class="why">A known starting state prevents setup problems from consuming build time.</p></div><div class="time">5 MIN</div></div>
         <div class="step-body">
-          <p class="action">Prepare one ChatGPT Project and confirm that Sites is available.</p>
-          <ol class="setup-list"><li>Paste <code>PROJECT-INSTRUCTIONS.md</code> into the Project instructions.</li><li>Add the starter files to the Project.</li><li>Confirm that ChatGPT can create a Site.</li></ol>
-          <div class="expected"><strong>Ready state</strong>The Project can read the instructions and create a Site.</div>
-          <details><summary>Sites unavailable?</summary><p id="setupFallback">Use a normal chat with <code>PROJECT-INSTRUCTIONS.md</code>. If setup still takes more than two minutes, continue with Soft Hours and <code>website-starter/index.html</code>. Codex users can use <code>$vibe-to-store</code>.</p></details>
-          <label class="checkrow"><input type="checkbox" data-check="prepare">My Project is ready, and I know where the fallback is.</label>
+          <p class="action" id="prepareAction">Prepare one ChatGPT Project and confirm that Sites is available.</p>
+          <ol class="setup-list" id="setupList"><li>Paste <code>PROJECT-INSTRUCTIONS.md</code> into the Project instructions.</li><li>Add the starter files to the Project.</li><li>Confirm that ChatGPT can create a Site.</li></ol>
+          <div class="expected"><strong>Ready state</strong><span id="prepareReady">The Project can read the instructions and create a Site.</span></div>
+          <details><summary id="setupFallbackTitle">Sites unavailable?</summary><p id="setupFallback">Use a normal chat with <code>PROJECT-INSTRUCTIONS.md</code>. If setup still takes more than two minutes, continue with Soft Hours and <code>website-starter/index.html</code>. Codex users can use <code>$vibe-to-store</code>.</p></details>
+          <label class="checkrow"><input type="checkbox" data-check="prepare"><span id="prepareCheck">My Project is ready, and I know where the fallback is.</span></label>
         </div>
       </section>
 
@@ -118,7 +118,7 @@ Propose three clearly different visual directions. Explain the palette, typograp
       <section class="step" id="check" data-step="check">
         <div class="step-head"><div class="num">07</div><div><h3>Check, repair, and submit</h3><p class="why" id="step7Why">The final artifact is the system: the same promise and product identity across three formats.</p></div><div class="time">17 MIN</div></div>
         <div class="step-body">
-          <p class="action">Open <code>templates/CONSISTENCY-CHECK.md</code>. Score the website, social image, and video. Fix the lowest-scoring mismatch only.</p>
+          <p class="action" id="checkAction">Open <code>templates/CONSISTENCY-CHECK.md</code>. Score the website, social image, and video. Fix the lowest-scoring mismatch only.</p>
           <table class="mini-table"><thead><tr><th>CHECK</th><th>PASS CONDITION</th></tr></thead><tbody id="consistencyRows"><tr><td>Promise</td><td>The same core idea is clear in all three artifacts.</td></tr><tr><td>Product identity</td><td>Names, prices, shape, material, and colour match.</td></tr><tr><td>Visual direction</td><td>Palette, type, light, composition, and pace follow the brief.</td></tr><tr><td>Truth</td><td>No unsupported claims or invented products appear.</td></tr><tr><td>Action</td><td>The next step is clear and consistent.</td></tr></tbody></table>
           <div class="expected"><strong>Submit</strong><ul class="submit-list" id="submitList"><li><code>STORE-KIT.md</code> and <code>product-family.png</code></li><li>Sites link or fallback website folder</li><li>Social image and video or animatic</li><li>Completed consistency check</li></ul></div>
           <label class="checkrow"><input type="checkbox" data-check="check">I repaired one meaningful mismatch and saved every required output together.</label>
@@ -192,60 +192,80 @@ Propose three clearly different visual directions. Explain the palette, typograp
     function digitalRoute(kind){
       const isApp=kind==="app";
       const noun=isApp?"software app":"service experience";
-      const journey=isApp?"three connected screens":"three connected journey moments";
-      const primaryExample=isApp?"Example: a study-planning app with Today, Start Session, and Session Complete screens":"Example: a tutoring service with Discover, Choose a Tutor, and Booking Confirmed moments";
+      const journey=isApp?"focused user journey":"focused customer journey";
+      const primaryExample=isApp?"Example: a study-planning app that helps a student choose a task, begin a session, and see what they completed":"Example: a tutoring service that helps a parent compare tutors, book a session, and understand what happens next";
       return{
         missionTitle:isApp?"Build one app in three formats":"Build one service experience in three formats",
-        missionSummary:"You will build "+journey+", one social image, and a short video. One Design Kit keeps the user journey, interface, message, and visual direction consistent.",
-        routeNote:isApp?"Build one useful three-screen journey, then reuse the approved interface in the campaign.":"Build one clear service journey, then reuse the approved experience in the campaign.",
-        sourceLabel:"DESIGN KIT",coreLabel:isApp?"APP":"SERVICE",coreValue:isApp?"Published experience":"Published journey",
-        setupFallback:"Use a normal chat if Sites is unavailable. Keep the experience to three screens or moments and use static or simulated data; no live integration is required.",
-        navStep2:isApp?"2 · Define the app":"2 · Define the service",navStep3:isApp?"3 · Build the app":"3 · Build the journey",navStep4:"4 · Screen references",
+        missionSummary:"You will build one "+journey+" in Google Stitch, select its three strongest visual moments, and turn them into one social image and a short video. One DESIGN.md keeps the experience and campaign consistent.",
+        routeNote:isApp?"Build the complete core flow in Stitch, then reuse three selected interface moments in the campaign.":"Build the complete digital service journey in Stitch, then reuse three selected experience moments in the campaign.",
+        sourceLabel:"DESIGN.MD",coreLabel:"PROTOTYPE",coreValue:"Stitch experience",
+        navStep2:isApp?"2 · Define the app":"2 · Define the service",navStep3:"3 · Build in Stitch",navStep4:"4 · Select visual moments",
         step2Title:isApp?"Create and lock the app":"Create and lock the service",step2Why:"Three useful decisions give the guide enough information to recommend a coherent visual and interaction direction.",
-        primaryLabel:isApp?"What does the app help someone do?":"What service are you offering?",
-        primaryHelp:isApp?"Name the core job and exactly three connected screens.":"Name the service and exactly three connected moments in the customer journey.",
+        primaryLabel:isApp?"What does the app help someone do?":"What service journey are you designing?",
+        primaryHelp:isApp?"Name one core job and the successful outcome. Let the journey determine the screens it needs.":"Name one customer goal and the successful outcome. Let the journey determine the digital moments it needs.",
         primaryPlaceholder:primaryExample,
         momentLabel:"Who is the user, and what is happening?",momentPlaceholder:isApp?"Example: a student opening the app before an evening study session who wants to know what to focus on next":"Example: a parent comparing tutors before booking a first session who wants to feel confident about the choice",
-        goodExample:isApp?"“A study-planning app with Today, Start Session, and Session Complete screens.”":"“A tutoring service with Discover, Choose a Tutor, and Booking Confirmed moments.”",
+        goodExample:isApp?"“A study-planning app that helps a student choose, start, and complete one focused session.”":"“A tutoring service that helps a parent compare tutors and confidently book a first session.”",
         weakExample:isApp?"“An AI productivity platform for everyone.”":"“A premium service that transforms people’s lives.”",
         starterPrompt:"I am building a "+noun+".\n\nMy core experience: [complete the field above]\nMy user moment: [complete the field above]\nMy taste boundary: [complete the field above]\n\nPropose three clearly different visual and interaction directions. Explain what each communicates, why it fits, the palette, typography, interface style, imagery, composition, motion, voice, and one risk. Then wait for me to choose.",
-        starterDynamic:function(){return "I am building a "+noun+".\n\nMy core experience: "+(productSet.value||"[name the core job and exactly three connected screens or journey moments]")+"\nMy user moment: "+(customerMoment.value||"[name the person, situation, and desired small change]")+"\nMy taste boundary: "+(tasteBoundary.value||"[commercial position, quality to preserve, and thing to avoid]")+"\n\nPropose three clearly different visual and interaction directions. Explain what each communicates, why it fits, the palette, typography, interface style, imagery, composition, motion, voice, and one risk. Then wait for me to choose.";},
-        lockAction:"Choose one direction, or combine two named qualities once. Then create the Design Kit.",
-        lockPrompt:"Develop direction [name]. Lock the experience and create one file named DESIGN-KIT.md. It must contain one clear promise, the primary user and moment, one core action, exactly "+journey+", approved interface and campaign copy, visual and interaction rules, non-negotiables, and an avoid list. For each screen or moment, specify its purpose, content hierarchy, primary action, exact CTA copy, important state, and what success looks like. Validate it against the Design Kit requirements before you finish.",
-        lockReady:"One file with a clear promise, exactly "+journey+", visual and interaction rules, and approved copy.",
-        lockRescue:"Use a simple three-part journey: understand, act, and confirm. Remove any feature that is not needed to complete that journey.",
-        lockCheck:"My <code>DESIGN-KIT.md</code> exists and contains every required section.",
-        step3Title:isApp?"Build the core app experience":"Build the core service journey",step3Why:"Real interface screens become the source of truth for the social image and video.",step3Time:"20 MIN",
-        step3Action:"Ask Sites to build exactly "+journey+" from <code>DESIGN-KIT.md</code>.",
-        referencePrompt:"Read DESIGN-KIT.md. Create a responsive "+noun+" in ChatGPT Sites with exactly "+journey+". Preserve the approved promise, interface copy, visual direction, navigation, components, and states. Give each screen or moment one clear purpose and one primary action, and connect them into a working journey. Do not add features, screens, testimonials, pricing claims, accounts, or integrations that are not present in DESIGN-KIT.md. Test the complete journey on desktop and mobile, then publish the Site publicly.",
-        step3Ready:"A published experience with exactly "+journey+", clear primary actions, and a complete path from start to success.",
-        step3Rescue:"Reduce the experience to one user, one task, and three connected moments. Static or simulated data is enough; do not add authentication or live integrations.",
-        step3Check:"My published experience works on desktop and mobile from the first screen to the success state.",
-        step4Title:"Capture the UX references",step4Why:"Approved captures prevent later tools from inventing screens, copy, or controls.",step4Time:"10 MIN",
-        step4Action:"Capture the three approved screens or journey moments before creating campaign imagery.",
-        websitePrompt:"Open the published Site and capture the three approved screens or journey moments at the same desktop viewport. Preserve the exact interface text, layout, controls, colours, and states. Save the individual captures and one landscape contact sheet named experience-screens.png. These captures are now the visual source of truth for the social image and video.",
-        step4Ready:"Three consistent captures and one readable <code>experience-screens.png</code> contact sheet.",
-        step4OptionalTitle:"Using an image generator next?",step4OptionalText:"Use the real screen capture as a placed interface element. Generate only the surrounding campaign world. If the tool redraws or changes the interface, use a free editor instead.",
-        step4Rescue:"Use browser screenshots at one consistent size. If a screen is incomplete, repair the Site before capturing it.",
-        step4Check:"I saved three approved captures and one <code>experience-screens.png</code> contact sheet.",
-        step5Why:"A campaign image should lead with one message while preserving the real interface.",
-        step5Action:"Attach the approved UX reference and use the prompt below to make one 1080 × 1350 image.",
-        socialPrompt:"Attach experience-screens.png and read DESIGN-KIT.md. Create one 1080 × 1350 campaign composition with one approved interface screen as the dominant visual and the approved social line as the leading message. Preserve the screen exactly. Do not redraw the interface, alter its text, move its controls, or invent features. Apply the approved palette, imagery, composition, lighting, and type direction only around the interface. If the image tool cannot preserve the screen accurately, generate the campaign background separately and combine it with the original screenshot in an editor.",
-        pomelliHelp:"Use the public experience URL to develop one campaign concept. Check that it does not invent features, outcomes, or interface states.",
-        editorHelp:"In Adobe Express or another editor, place one original screen capture over a generated or designed campaign background.",
-        pomelliPrompt:"Use this public experience URL: [URL]. Build one campaign around the approved social line from DESIGN-KIT.md. Preserve the promise, feature set, interface copy, visual direction, and approved screen. Export one 1080 × 1350 frame. Reject invented features, outcomes, testimonials, or claims.",
-        step5Ready:"One unaltered interface screen, one leading line, and the same visual direction as the working experience.",
-        step5Rescue:"Place the original screenshot over a simple background in a free editor. Do not ask an image model to redraw the interface.",
+        starterDynamic:function(){return "I am building a "+noun+".\n\nMy core experience: "+(productSet.value||"[name one core job and its successful outcome]")+"\nMy user moment: "+(customerMoment.value||"[name the person, situation, and desired small change]")+"\nMy taste boundary: "+(tasteBoundary.value||"[commercial position, quality to preserve, and thing to avoid]")+"\n\nPropose three clearly different visual and interaction directions. Explain what each communicates, why it fits, the palette, typography, interface style, imagery, composition, motion, voice, and one risk. Then wait for me to choose.";},
+        lockAction:"Choose one direction, or combine two named qualities once. Then create DESIGN.md.",
+        lockPrompt:"Develop direction [name]. Lock the experience and create one file named DESIGN.md for Google Stitch. It must contain one clear promise, the primary user and moment, one core action, one observable success state, the complete focused journey, approved interface and campaign copy, visual and interaction rules, non-negotiables, and an avoid list. Specify the screens and states needed to make the journey understandable and testable; do not force it into a fixed screen count. For each required screen or state, include its purpose, content hierarchy, primary action, exact CTA copy, important state, and what success looks like. Validate it against the DESIGN.md template before you finish.",
+        lockReady:"One <code>DESIGN.md</code> with a clear promise, a complete focused journey, visual and interaction rules, and approved copy.",
+        lockRescue:"Reduce the scope to one user, one goal, and one complete path from entry to success. Most workshop flows will be small, but the task—not a fixed number—decides how many screens or states are needed.",
+        lockCheck:"My <code>DESIGN.md</code> exists and contains every required section.",
+        step3Title:isApp?"Build the app in Google Stitch":"Build the service journey in Google Stitch",step3Why:"Stitch can apply DESIGN.md directly while generating and connecting the interface screens the journey actually needs.",step3Time:"20 MIN",
+        step3Action:"Import <code>DESIGN.md</code> into Google Stitch, then use the prompt below.",
+        referencePrompt:"Import DESIGN.md into Google Stitch and use it as the visual and interaction system of record. Design one "+journey+" for the named user and goal. Create all screens and interface states needed to make the journey understandable and testable, then connect them into a clickable prototype. Keep the scope suitable for a workshop and use static or simulated data. Preserve the approved promise, copy, palette, typography, components, imagery, motion, and voice. Do not invent a different visual style, extra features, testimonials, unsupported outcomes, authentication, payments, or live integrations. Test the complete journey from entry to the approved success state.",
+        step3Ready:"A working Stitch prototype with a complete path from entry to success and only the screens and states the journey needs.",
+        step3Rescue:"Keep one user and one goal. Remove side features, not necessary states. If Stitch is unavailable after two minutes, use ChatGPT Sites with the same DESIGN.md and build the same bounded journey.",
+        step3Check:"My Stitch prototype completes the core journey from entry to the success state.",
+        step4Title:"Select the visual moments",step4Why:"Three selected moments give the campaign a clear story without limiting the prototype itself.",step4Time:"10 MIN",
+        step4Action:"Choose the three strongest visual moments from the finished Stitch journey: entry, defining interaction, and outcome.",
+        websitePrompt:"Open the finished Google Stitch prototype. Select its three strongest visual moments: the entry point, the defining interaction, and the successful outcome. These may be full screens or meaningful states within a screen. Refine them in Stitch if needed, then capture all three at the same viewport size. Preserve the exact interface text, layout, controls, colours, and states. Save the individual captures and one landscape contact sheet named experience-screens.png. These captures are now the visual source of truth for the social image and video.",
+        step4Ready:"Three genuine moments from the working Stitch prototype and one readable <code>experience-screens.png</code> contact sheet.",
+        step4OptionalTitle:"Using an image generator next?",step4OptionalText:"Use the real Stitch capture as a placed interface element. Generate only the surrounding campaign world. If the tool redraws or changes the interface, use a free editor instead.",
+        step4Rescue:"Use screenshots at one consistent size. If an important state is unclear, repair the Stitch prototype before capturing it.",
+        step4Check:"I selected and saved three strong moments plus one <code>experience-screens.png</code> contact sheet.",
+        step5Why:"A campaign image should lead with one message while preserving the real Stitch interface.",
+        step5Action:"Attach the approved Stitch references and use the prompt below to make one 1080 × 1350 image.",
+        socialPrompt:"Attach experience-screens.png and read DESIGN.md. Create one 1080 × 1350 campaign composition with one approved interface moment as the dominant visual and the approved social line as the leading message. Preserve the interface exactly. Do not redraw it, alter its text, move its controls, or invent features. Apply the approved palette, imagery, composition, lighting, and type direction only around the interface. If the image tool cannot preserve the screen accurately, generate the campaign background separately and combine it with the original screenshot in an editor.",
+        pomelliHelp:"Use Pomelli only if the Stitch experience has been published as a public website. Otherwise use the prompt-plus-capture or editor route.",
+        editorHelp:"In Adobe Express or another editor, place one original Stitch capture over a generated or designed campaign background.",
+        pomelliPrompt:"Use this public experience URL: [URL]. Build one campaign around the approved social line from DESIGN.md. Preserve the promise, feature set, interface copy, visual direction, and approved screen. Export one 1080 × 1350 frame. Reject invented features, outcomes, testimonials, or claims.",
+        step5Ready:"One unaltered Stitch interface moment, one leading line, and the same visual direction as the prototype.",
+        step5Rescue:"Place the original Stitch capture over a simple background in a free editor. Do not ask an image model to redraw the interface.",
         step6Why:"The need, action, and outcome give the short sequence visible progression.",
         beat1Text:"0–2.5 seconds. Show the user need or moment.",beat2Title:"2 · Experience",beat2Text:"2.5–5.2 seconds. Show the real primary action.",beat3Text:"5.2–8 seconds. Show the approved success state and promise.",
-        videoPrompt:"Read DESIGN-KIT.md. Use the approved UX screen captures and selected social image. Create a silent 1080 × 1920 sequence lasting 6–8 seconds with exactly three scenes: user need, interface action, and outcome. Use the approved video lines and actual screens. Preserve the exact interface text, layout, controls, and states. Do not redraw screens, invent features, add unsupported outcomes, or add extra scenes. Completion check: a viewer can understand what the "+(isApp?"app":"service")+" does when the video plays muted.",
-        flowHelp:"Upload <code>experience-screens.png</code> and the social image as references, then use the prompt above. Reject any clip that changes the interface.",
+        videoPrompt:"Read DESIGN.md. Use the three approved Stitch captures and selected social image. Create a silent 1080 × 1920 sequence lasting 6–8 seconds with exactly three scenes: user need, interface action, and outcome. Use the approved video lines and actual interface moments. Preserve the exact interface text, layout, controls, and states. Do not redraw screens, invent features, add unsupported outcomes, or add extra scenes. Completion check: a viewer can understand what the "+(isApp?"app":"service")+" does when the video plays muted.",
+        flowHelp:"Upload <code>experience-screens.png</code> and the social image as references, then use the prompt above. Reject any clip that changes the Stitch interface.",
         step6Ready:"Three different beats, readable interface text, recognisable screens, and a clear outcome.",step6Check:"My muted sequence shows the user need, real interface action, and approved outcome in 6–8 seconds.",
-        step7Why:"The final artifact is the system: the same promise, journey, interface, and visual direction across three formats.",
-        consistencyRows:"<tr><td>Promise</td><td>The same core idea is clear in all three artifacts.</td></tr><tr><td>Journey</td><td>The same three screens or moments appear in the same logical order.</td></tr><tr><td>Interface truth</td><td>Text, controls, states, and features match the working Site.</td></tr><tr><td>Visual direction</td><td>Palette, type, imagery, composition, and pace follow the brief.</td></tr><tr><td>Action</td><td>The primary action and successful outcome remain clear.</td></tr>",
-        submitList:"<li><code>DESIGN-KIT.md</code> and <code>experience-screens.png</code></li><li>Published Sites link</li><li>Social image and video or animatic</li><li>Completed consistency check</li>"
+        step7Why:"The final artifact is the system: the same promise, journey, interface, and visual direction across the Stitch prototype and campaign.",
+        consistencyRows:"<tr><td>Promise</td><td>The same core idea is clear in the prototype and both campaign artifacts.</td></tr><tr><td>Journey</td><td>The three selected visual moments are genuine states from the working prototype and remain in logical order.</td></tr><tr><td>Interface truth</td><td>Text, controls, states, and features match the Stitch prototype.</td></tr><tr><td>Visual direction</td><td>Palette, type, imagery, composition, and pace follow DESIGN.md.</td></tr><tr><td>Action</td><td>The primary action and successful outcome remain clear.</td></tr>",
+        submitList:"<li><code>DESIGN.md</code> and <code>experience-screens.png</code></li><li>Shareable Stitch prototype link or saved export</li><li>Social image and video or animatic</li><li>Completed consistency check</li>"
       };
     }
+
+    const routeSetup={
+      store:{
+        prepareAction:"Prepare one ChatGPT Project and confirm that Sites is available.",
+        setupList:"<li>Paste <code>PROJECT-INSTRUCTIONS.md</code> into the Project instructions.</li><li>Add the starter files to the Project.</li><li>Confirm that ChatGPT can create a Site.</li>",
+        prepareReady:"The Project can read the instructions and create a Site.",
+        setupFallbackTitle:"Sites unavailable?",
+        setupFallback:storeRoute.setupFallback,
+        prepareCheck:"My Project is ready, and I know where the fallback is.",
+        checkAction:"Open <code>templates/CONSISTENCY-CHECK.md</code>. Score the website, social image, and video. Fix the lowest-scoring mismatch only."
+      },
+      digital:{
+        prepareAction:"Prepare one ChatGPT Project and confirm that Google Stitch opens on your account.",
+        setupList:"<li>Paste <code>PROJECT-INSTRUCTIONS.md</code> into the Project instructions.</li><li>Add <code>templates/DESIGN-TEMPLATE.md</code> to the Project.</li><li>Open <a href=\"https://stitch.withgoogle.com/\" target=\"_blank\" rel=\"noreferrer\">Google Stitch</a> and start a blank project.</li>",
+        prepareReady:"ChatGPT can create DESIGN.md, and Stitch is ready to import it.",
+        setupFallbackTitle:"Stitch unavailable?",
+        setupFallback:"Use ChatGPT Sites with the same <code>DESIGN.md</code> and focused-journey prompt. Use static or simulated data; no live integration is required.",
+        prepareCheck:"My ChatGPT Project and Stitch workspace are ready, and I know the fallback.",
+        checkAction:"Open <code>templates/CONSISTENCY-CHECK.md</code>. Score the Stitch prototype, social image, and video. Fix the lowest-scoring mismatch only."
+      }
+    };
 
     const routes={store:storeRoute,app:digitalRoute("app"),service:digitalRoute("service")};
     function setText(id,value){document.getElementById(id).textContent=value;}
@@ -253,7 +273,11 @@ Propose three clearly different visual directions. Explain the palette, typograp
     function setPrompt(id,value){document.getElementById(id).childNodes[0].nodeValue=value;}
     function applyRoute(routeName){
       const route=routes[routeName];
+      const setup=routeName==="store"?routeSetup.store:routeSetup.digital;
       ["missionTitle","missionSummary","routeNote","sourceLabel","coreLabel","coreValue","navStep2","navStep3","navStep4","step2Title","step2Why","primaryLabel","primaryHelp","momentLabel","goodExample","weakExample","lockAction","step3Title","step3Why","step3Time","step4Title","step4Why","step4Time","step4OptionalTitle","step4OptionalText","step5Why","step5Action","pomelliHelp","editorHelp","step6Why","beat1Text","beat2Title","beat2Text","beat3Text","step6Ready","step6Check","step7Why"].forEach(id=>setText(id,route[id]));
+      ["prepareAction","prepareReady","setupFallbackTitle","prepareCheck"].forEach(id=>setText(id,setup[id]));
+      setHTML("setupList",setup.setupList);
+      setHTML("checkAction",setup.checkAction);
       productSet.placeholder=route.primaryPlaceholder;
       customerMoment.placeholder=route.momentPlaceholder;
       setPrompt("starterPrompt",route.starterPrompt);
@@ -264,7 +288,8 @@ Propose three clearly different visual directions. Explain the palette, typograp
       setPrompt("pomelliPrompt",route.pomelliPrompt);
       setPrompt("videoPrompt",route.videoPrompt);
       ["lockReady","step3Ready","step5Ready"].forEach(id=>setText(id,route[id]));
-      ["setupFallback","lockRescue","lockCheck","step3Action","step3Rescue","step3Check","step4Action","step4Ready","step4Rescue","step4Check","step5Rescue","flowHelp","consistencyRows","submitList"].forEach(id=>setHTML(id,route[id]));
+      setHTML("setupFallback",setup.setupFallback);
+      ["lockRescue","lockCheck","step3Action","step3Rescue","step3Check","step4Action","step4Ready","step4Rescue","step4Check","step5Rescue","flowHelp","consistencyRows","submitList"].forEach(id=>setHTML(id,route[id]));
       document.body.dataset.route=routeName;
     }
 

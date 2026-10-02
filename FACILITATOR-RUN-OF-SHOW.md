@@ -2,56 +2,64 @@
 
 ## Before class
 
-- Give students the lean starter-kit folder or add the same files to a ChatGPT Project.
-- For ChatGPT Projects, paste `PROJECT-INSTRUCTIONS.md` into the Project instructions.
-- For Codex, confirm the folder discovers `$vibe-to-store`.
-- Confirm that the classroom ChatGPT accounts can create and publish Sites. New Sites should remain private unless students deliberately need a public URL for Pomelli.
-- Open the guide, HTML recovery starter, and video template once on the actual classroom devices.
-- Keep `fallback/STORE-KIT.md` and `fallback/product-family.png` ready.
-- Preflight the exact classroom accounts. Mark each optional tool as **available**, **demo only**, or **skip** before students arrive.
-- Treat Pomelli as optional: it needs a public store URL, and its launch availability was region-limited. Keep instructor screenshots or a short recording if you want to demonstrate its URL-to-campaign flow.
-- Treat Google Flow as optional: verify each account's access and credits, and expect a visible watermark in India. Avoid depending on live generation during peak demand.
-- Keep Adobe Express or another simple editor ready for the social frame, and CapCut, Adobe Express, or the browser loop ready for video assembly.
-- Do not add payment processing, accounts, external APIs, or live commerce integrations.
+- Give students the complete starter-kit folder. Ask them to unzip it before opening `index.html`.
+- Confirm that students can create a ChatGPT Project and use Project instructions.
+- Preflight ChatGPT Sites for the physical-product route.
+- Preflight Google Stitch for the software-app and service routes. Confirm that students can start a project, import or paste `DESIGN.md`, generate screens, connect a prototype, and save a shareable link or export.
+- Open the guide, physical-store HTML fallback, and video template once on the classroom devices.
+- Keep `fallback/STORE-KIT.md` and `fallback/product-family.png` ready for the instructor's physical-product demonstration.
+- Mark every optional tool as **available**, **demo only**, or **skip** before students arrive.
+- Treat Pomelli as optional. It needs a public website URL and may not accept a prototype-only link.
+- Treat Google Flow as optional. Verify access and credits, and keep the editor or browser-loop fallback ready.
+- Do not add payment processing, authentication, external APIs, or live integrations.
 
-Students follow one workflow. Demonstrate ChatGPT Sites as the core website route. Present the HTML starter and other tool choices as recovery or optional lanes, not as extra lessons.
+Demonstrate the physical-product route with Soft Hours because the product reference is easy to see on a projector. At the corresponding build step, show app and service students where their path changes: they take `DESIGN.md` directly into Stitch. Do not teach a second full demonstration.
+
+## Route map
+
+| Route | Written source | Core build | Visual source |
+| --- | --- | --- | --- |
+| Physical product | `STORE-KIT.md` | Product-family image, then ChatGPT Sites store | `product-family.png` |
+| Software app | `DESIGN.md` | Focused journey in Google Stitch | Three selected Stitch moments in `experience-screens.png` |
+| Service experience | `DESIGN.md` | Focused digital customer journey in Google Stitch | Three selected Stitch moments in `experience-screens.png` |
+
+The three selected digital moments are campaign anchors, not a limit on the prototype. The prototype contains whatever screens and states its focused journey needs.
 
 ## 90 minutes
 
 | Time | Instructor | Students | Evidence |
 | --- | --- | --- | --- |
-| 0–5 | Show the finished Soft Hours website, social image, and video loop. Confirm both setups can access the guide. | Identify what remains consistent. | Three visible artifacts. |
-| 5–13 | Model the three detailed inputs and compare weak versus useful answers. | Enter product set, customer moment, and taste boundary. | Three proposed visual directions. |
-| 13–16 | Explain one route choice and lock Soft Hours. | Choose one route and save `STORE-KIT.md`. | One complete written source. |
-| 16–26 | Generate the Soft Hours product-family reference. | Generate one product-family image. | Three correct products in one image. |
-| 26–46 | Build the Soft Hours store in ChatGPT Sites, test the cart, and publish privately. | Build, test, and publish their Site. | Working Sites link with correct cart item and total. |
-| 46–58 | Turn one product into one social message using the core prompt. Briefly point to the Pomelli and editor lanes. | Choose one lane and make one 4:5 social image. | Recognisable product and one leading message. |
-| 58–73 | Show the hook, product, and payoff beats. Briefly point to Flow, editor, and browser-loop lanes. | Choose one lane and build the same three beats. | 6–8 second muted sequence. |
-| 73–83 | Compare all outputs with the Store Kit and product reference. | Score and repair the weakest mismatch. | Completed consistency check. |
-| 83–90 | Invite short shares and restate the evidence gate. | Export and submit. | Store Kit, reference image, website, social image, video, and checklist. |
+| 0–5 | Show the finished store or prototype, social image, and video. Confirm that the guide and route selector work. | Choose a route and identify what stays consistent across the three artifacts. | Route selected. |
+| 5–13 | Model the three detailed inputs and compare weak versus useful answers. | Enter the core offer or experience, user moment, and taste boundary. | Three proposed visual directions. |
+| 13–16 | Explain one direction choice and lock it. | Choose one direction and save `STORE-KIT.md` or `DESIGN.md`. | One complete written source. |
+| 16–46 | Demonstrate the store build. Briefly show the direct `DESIGN.md` → Stitch handoff for digital routes. | Product: make the family image and store. Digital: import `DESIGN.md`, build the focused journey, and select three visual moments. | Working store or Stitch prototype plus visual reference. |
+| 46–58 | Turn one product or Stitch moment into one social message. Point to the optional Pomelli and editor lanes. | Make one 4:5 social image without changing the product or interface. | Recognisable source visual and one leading message. |
+| 58–73 | Show the three video beats. Briefly point to Flow, editor, and browser-loop lanes. | Build the same three beats from approved references. | 6–8 second muted sequence. |
+| 73–83 | Compare all outputs with the source file and visual reference. | Score and repair the weakest mismatch. | Completed consistency check. |
+| 83–90 | Invite short shares and restate the evidence gate. | Export and submit. | Complete submission folder. |
 
 ## Intervention rules
 
-- If a student spends more than two minutes on setup, move them to a normal chat with the Project instructions pasted into the first message.
-- If a student spends more than two minutes choosing a concept, move them to Soft Hours or one of the safe starting categories.
-- If `STORE-KIT.md` omits a field, ask the tool to validate against the Store Kit schema. Do not improvise missing prices or claims.
-- If image generation changes the products, attach the family reference and specify what may change: crop, light, setting, shadow, and type.
-- If Sites is unavailable after two minutes, move the student to `website-starter/index.html` and use the same bounded build prompt without the publishing instruction.
-- If a student wants to use Pomelli, confirm that public sharing is allowed before changing the Site's audience. A private Site should stay private and use another social-image lane.
-- If any optional tool cannot be opened, authenticated, or used within two minutes, move the student to the next lane. Do not troubleshoot accounts during build time.
-- If Pomelli is unavailable, use the prompt-plus-reference route or compose the frame in a free editor.
-- If Flow has no usable credits or generation is unavailable, assemble three stills in CapCut or Adobe Express, or use the browser loop.
-- If a Sites build loses scope, start one repair request that names the failed check. If it still fails, use the HTML recovery starter.
-- If video export fails, accept the browser loop or a three-frame animatic.
-- Stop expansion. Extra pages, extra products, audio, checkout, and additional social formats are stretch work.
+- If setup takes more than two minutes, use a normal chat with `PROJECT-INSTRUCTIONS.md` pasted into the first message.
+- If a student cannot choose a concept in two minutes, offer one safe example while letting them keep their selected route.
+- If a source file omits a required section, ask ChatGPT to validate it against the matching template. Do not improvise missing claims, prices, states, or outcomes.
+- If product generation changes an object, regenerate or repair the family image before building the store.
+- If Sites is unavailable for a product student, move them to `website-starter/index.html`.
+- If Stitch is unavailable for an app or service student, move them to ChatGPT Sites with the same `DESIGN.md` and focused-journey prompt.
+- If a Stitch journey expands, return to one user, one goal, and one complete path. Remove side features, not necessary states.
+- If a digital student starts with three screens as a quota, ask what the journey needs. Three is used only after prototyping, when selecting campaign moments.
+- If an image or video model redraws an interface, use the original Stitch capture as a placed layer in an editor.
+- If an optional tool cannot be opened or used within two minutes, move to the next lane. Do not troubleshoot accounts during build time.
+- If video generation is unavailable, assemble three stills in a free editor or submit the browser loop or a three-frame animatic.
+- Stop expansion. Extra pages, side features, audio, checkout, accounts, and additional social formats are stretch work.
 
 ## Evidence rubric
 
-| Criterion | Pass |
-| --- | --- |
-| Store Kit | One file contains three products, complete prices and descriptions, the chosen visual direction, approved copy, and no unsupported claims. |
-| Product reference | One image clearly shows all three correct products. |
-| Website | Published Sites link or working fallback folder with exact product data, clear promise, product view, working cart, and usable mobile layout. |
-| Social | One message, recognisable reference product, and correct visual direction. |
-| Video | Three distinct beats, correct product identity, and understandable when muted. |
-| System | The written Store Kit and visual reference remain consistent across every output. |
+| Criterion | Physical-product pass | App or service pass |
+| --- | --- | --- |
+| Written source | `STORE-KIT.md` contains the complete product and visual system. | `DESIGN.md` contains one focused journey and complete visual and interaction rules. |
+| Core build | The store has the correct products, product view, working cart, and usable mobile layout. | The Stitch prototype completes the core journey from entry to the approved success state. |
+| Visual reference | One image clearly shows all three correct products. | Three selected moments are genuine states from the working Stitch prototype. |
+| Social | One message and one recognisable reference product. | One message and one unaltered Stitch interface moment. |
+| Video | Three distinct beats, correct product identity, and clear meaning when muted. | Three distinct beats, real interface moments, and clear meaning when muted. |
+| System | Store Kit and product reference stay consistent across every output. | `DESIGN.md` and Stitch captures stay consistent across every output. |
