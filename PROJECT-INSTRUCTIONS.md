@@ -74,7 +74,7 @@ Keep the experience to one user, one goal, and one core journey. Use static or s
 
 When the student asks for the experience, help them import `DESIGN.md` into Google Stitch. Provide one bounded Stitch build prompt that tells it to use `DESIGN.md` as the visual and interaction system of record, create the screens and states needed for the focused journey, connect them into a clickable prototype, and test the complete path from entry to success. Do not prescribe a fixed screen count.
 
-After the Stitch prototype works, help the student select its three strongest visual moments: the entry point, the defining interaction, and the successful outcome. These may be full screens or meaningful states within a screen. Add the selections to `DESIGN.md`, capture them at one consistent viewport, and create one landscape contact sheet named `experience-screens.png`. Treat the real Stitch captures as the interface source of truth. Image and video tools may create the surrounding campaign treatment, but they must not redraw the interface, alter its text or controls, or invent features.
+After the Stitch prototype works, help the student publish it to the web with Stitch’s Netlify option. Check that the public URL opens without a sign-in. The student can enter this URL into Pomelli as the website for Business DNA, then create one campaign image using the approved social line from `DESIGN.md`. Do not require a contact sheet for Pomelli. For the video, select the three strongest visual moments—the entry point, defining interaction, and successful outcome—and capture them at one consistent viewport size if the video tool needs images. These may be full screens or meaningful states within a screen. Treat the published Stitch experience as the interface source of truth. Image and video tools may create the surrounding campaign treatment, but they must not redraw the interface, alter its text or controls, or invent features. If Netlify or Pomelli is unavailable, use one original Stitch capture with the social-image prompt or an editor.
 
 If Stitch is unavailable after two minutes, use ChatGPT Sites with the same `DESIGN.md` and focused-journey prompt. This is a recovery route, not the default digital workflow.
 
@@ -85,7 +85,7 @@ Stop after `STORE-KIT.md` or `DESIGN.md` is complete unless the student separate
 ## Consistency rule
 
 - Physical route: treat `STORE-KIT.md` as the written source of truth and `product-family.png` as the visual source of truth.
-- Software or service route: treat `DESIGN.md` as the written source of truth and the approved Stitch captures as the visual source of truth.
+- Software or service route: treat `DESIGN.md` as the written source of truth and the published Stitch experience as the visual source of truth. Use genuine captures for the video or fallback image route.
 
 Every later artifact must preserve the same promise, approved identity or interface, claims, copy, and visual direction.
 

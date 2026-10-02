@@ -29,14 +29,18 @@ const digitalRoute = guide.slice(digitalStart, digitalEnd);
 assert.match(digitalRoute, /Google Stitch/);
 assert.match(digitalRoute, /DESIGN\.md/);
 assert.match(digitalRoute, /focused (user|customer )?journey/i);
-assert.match(digitalRoute, /three strongest visual moments/i);
+assert.match(digitalRoute, /three real Stitch moments/i);
 assert.match(digitalRoute, /Import <code>DESIGN\.md<\/code> into Google Stitch/);
+assert.match(digitalRoute, /public Netlify URL/);
+assert.doesNotMatch(digitalRoute, /experience-screens\.png|contact sheet/i);
 assert.doesNotMatch(digitalRoute, /Ask Sites to build exactly/i);
 assert.doesNotMatch(digitalRoute, /DESIGN-KIT\.md/);
 assert.doesNotMatch(digitalRoute, /exactly three connected/i);
 
 assert.match(projectInstructions, /create one file named `DESIGN\.md`/);
 assert.match(projectInstructions, /import `DESIGN\.md` into Google Stitch/i);
+assert.match(projectInstructions, /Netlify option/);
+assert.doesNotMatch(projectInstructions, /experience-screens\.png|contact sheet named/i);
 assert.match(projectInstructions, /screens and states needed/i);
 assert.doesNotMatch(projectInstructions, /exactly three connected screens or journey moments/i);
 
@@ -47,7 +51,9 @@ assert.doesNotMatch(designTemplate, /Three-screen journey/);
 assert.match(consistencyCheck, /Stitch prototype/);
 assert.match(consistencyCheck, /selected visual moments/);
 assert.match(readme, /Google Stitch/);
+assert.match(readme, /publish it to Netlify/);
 assert.match(facilitator, /preflight Google Stitch/i);
+assert.match(facilitator, /public Netlify URL/);
 
 const elements = new Map();
 const makeElement = (id = "") => ({
@@ -101,7 +107,13 @@ vm.runInNewContext(`${script}\n;globalThis.__routeTest={applyRoute,routes};`, co
 context.__routeTest.applyRoute("app");
 assert.match(getElement("prepareAction").textContent, /Google Stitch/);
 assert.match(getElement("referencePrompt").childNodes[0].nodeValue, /Import DESIGN\.md into Google Stitch/);
-assert.match(getElement("websitePrompt").childNodes[0].nodeValue, /three strongest visual moments/i);
+assert.match(getElement("step4Action").innerHTML, /Netlify/);
+assert.match(getElement("pomelliHelp").textContent, /Netlify URL/);
+assert.match(getElement("step5Action").textContent, /In Pomelli/);
+assert.match(getElement("flowHelp").innerHTML, /three individual Stitch captures/);
+assert.equal(getElement("websitePrompt").hidden, true);
+assert.equal(getElement("step4DigitalSteps").hidden, false);
+assert.equal(getElement("socialOptions").open, true);
 assert.equal(getElement("sourceLabel").textContent, "DESIGN.MD");
 
 context.__routeTest.applyRoute("service");
@@ -110,6 +122,9 @@ assert.match(getElement("referencePrompt").childNodes[0].nodeValue, /focused cus
 context.__routeTest.applyRoute("store");
 assert.match(getElement("prepareAction").textContent, /Sites/);
 assert.match(getElement("referencePrompt").childNodes[0].nodeValue, /^Read STORE-KIT\.md/);
+assert.equal(getElement("websitePrompt").hidden, false);
+assert.equal(getElement("step4DigitalSteps").hidden, true);
+assert.equal(getElement("socialOptions").open, false);
 assert.equal(getElement("sourceLabel").textContent, "STORE KIT");
 
 console.log("Package validation passed.");
