@@ -35,7 +35,9 @@ assert.match(digitalRoute, /Import <code>DESIGN\.md<\/code> into Google Stitch/)
 assert.match(digitalRoute, /public Netlify URL/);
 assert.match(digitalRoute, /public-facing overview webpage/);
 assert.match(digitalRoute, /genuine interface screens as separate visible images/);
+assert.match(digitalRoute, /images already created in this Stitch project as visible image assets/);
 assert.match(digitalRoute, /replace them with real screen captures before publishing/);
+assert.match(guide, /reused Stitch images and genuine screen captures load on the public page/);
 assert.match(digitalRoute, /\$vibe-to-visuals/);
 assert.doesNotMatch(digitalRoute, /experience-screens\.png|contact sheet/i);
 assert.doesNotMatch(digitalRoute, /Ask Sites to build exactly/i);
