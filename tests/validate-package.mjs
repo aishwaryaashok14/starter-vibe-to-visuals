@@ -33,6 +33,9 @@ assert.match(digitalRoute, /focused (user|customer )?journey/i);
 assert.match(digitalRoute, /three real Stitch moments/i);
 assert.match(digitalRoute, /Import <code>DESIGN\.md<\/code> into Google Stitch/);
 assert.match(digitalRoute, /public Netlify URL/);
+assert.match(digitalRoute, /public-facing product overview page/);
+assert.match(digitalRoute, /genuine interface screens as separate visible images/);
+assert.match(digitalRoute, /replace them with real screen captures before publishing/);
 assert.match(digitalRoute, /\$vibe-to-visuals/);
 assert.doesNotMatch(digitalRoute, /experience-screens\.png|contact sheet/i);
 assert.doesNotMatch(digitalRoute, /Ask Sites to build exactly/i);
@@ -72,7 +75,8 @@ const makeElement = (id = "") => ({
   dataset: {},
   childNodes: [{ nodeValue: "" }],
   style: {},
-  addEventListener() {},
+  listeners: {},
+  addEventListener(type, handler) { this.listeners[type] = handler; },
   classList: { add() {}, remove() {} }
 });
 const getElement = (id) => {
@@ -108,7 +112,7 @@ const localStorage = {
 const script = guide.match(/<script>([\s\S]*?)<\/script>/)?.[1];
 assert.ok(script, "Guide script not found.");
 const context = { document, localStorage, location: { reload() {} }, navigator: { clipboard: { async writeText() {} } }, setTimeout() {} };
-vm.runInNewContext(`${script}\n;globalThis.__routeTest={applyRoute,routes};`, context);
+vm.runInNewContext(`${script}\n;globalThis.__routeTest={applyRoute,loadRoute,routes};`, context);
 
 context.__routeTest.applyRoute("app");
 assert.match(getElement("prepareAction").textContent, /Google Stitch/);
@@ -121,6 +125,14 @@ assert.equal(getElement("websitePrompt").hidden, true);
 assert.equal(getElement("step4DigitalSteps").hidden, false);
 assert.equal(getElement("socialOptions").open, true);
 assert.equal(getElement("sourceLabel").textContent, "DESIGN.MD");
+context.__routeTest.loadRoute("app");
+getElement("productSet").value = "a focused study planner";
+getElement("customerMoment").value = "a student starting an evening session";
+getElement("tasteBoundary").value = "calm and direct; avoid gamification";
+getElement("productSet").listeners.input();
+assert.match(getElement("starterPrompt").childNodes[0].nodeValue, /My core experience: a focused study planner/);
+assert.match(getElement("starterPrompt").childNodes[0].nodeValue, /My user moment: a student starting an evening session/);
+assert.match(getElement("starterPrompt").childNodes[0].nodeValue, /My taste boundary: calm and direct; avoid gamification/);
 
 context.__routeTest.applyRoute("service");
 assert.match(getElement("referencePrompt").childNodes[0].nodeValue, /focused customer journey/);
@@ -132,5 +144,9 @@ assert.equal(getElement("websitePrompt").hidden, false);
 assert.equal(getElement("step4DigitalSteps").hidden, true);
 assert.equal(getElement("socialOptions").open, false);
 assert.equal(getElement("sourceLabel").textContent, "STORE KIT");
+context.__routeTest.loadRoute("store");
+getElement("productSet").value = "a timer, pen rest, and tray";
+getElement("productSet").listeners.input();
+assert.match(getElement("starterPrompt").childNodes[0].nodeValue, /My product set: a timer, pen rest, and tray/);
 
 console.log("Package validation passed.");
