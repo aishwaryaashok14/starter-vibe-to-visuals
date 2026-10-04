@@ -33,7 +33,7 @@ assert.match(digitalRoute, /focused (user|customer )?journey/i);
 assert.match(digitalRoute, /three real Stitch moments/i);
 assert.match(digitalRoute, /Import <code>DESIGN\.md<\/code> into Google Stitch/);
 assert.match(digitalRoute, /public Netlify URL/);
-assert.match(digitalRoute, /public-facing product overview page/);
+assert.match(digitalRoute, /public-facing overview webpage/);
 assert.match(digitalRoute, /genuine interface screens as separate visible images/);
 assert.match(digitalRoute, /replace them with real screen captures before publishing/);
 assert.match(digitalRoute, /\$vibe-to-visuals/);
@@ -117,6 +117,7 @@ vm.runInNewContext(`${script}\n;globalThis.__routeTest={applyRoute,loadRoute,rou
 context.__routeTest.applyRoute("app");
 assert.match(getElement("prepareAction").textContent, /Google Stitch/);
 assert.match(getElement("referencePrompt").childNodes[0].nodeValue, /Import DESIGN\.md into Google Stitch/);
+assert.match(getElement("referencePrompt").childNodes[0].nodeValue, /overview webpage for the app/);
 assert.match(getElement("step4Action").innerHTML, /Netlify/);
 assert.match(getElement("pomelliHelp").textContent, /Netlify URL/);
 assert.match(getElement("step5Action").textContent, /In Pomelli/);
@@ -136,6 +137,7 @@ assert.match(getElement("starterPrompt").childNodes[0].nodeValue, /My taste boun
 
 context.__routeTest.applyRoute("service");
 assert.match(getElement("referencePrompt").childNodes[0].nodeValue, /focused customer journey/);
+assert.match(getElement("referencePrompt").childNodes[0].nodeValue, /overview webpage for the service/);
 
 context.__routeTest.applyRoute("store");
 assert.match(getElement("prepareAction").textContent, /Sites/);
